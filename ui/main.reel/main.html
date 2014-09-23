@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        App
+    </title>
+    <link rel="stylesheet" href="main.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "main"}
+            },
+            "bindings": {
+                "classList.has('is-detail')": { "<-": "@toggleSwitch.checked" }
+            }
+        },
+
+        "rssController": {
+            "prototype": "core/controller/rss-controller",
+            "properties": {
+                "rssUrl": "http://104.131.138.118/wp-json"
+            },
+            "bindings": {
+                "category": {"<-": "@feedSelectController.selection.0.slug"},
+                "filterTerm": {"<-": "@search.value"}
+            }
+        },
+
+        "feedSelectController": {
+            "prototype": "montage/core/range-controller",
+            "bindings": {
+                "content": {"<-": "@rssController.categories"}
+            }
+        },
+
+         "list": {
+            "prototype": "ui/list.reel",
+            "properties": {
+                "element": {"#": "list"},
+                 "contentController": {"@":"rssController"},
+                 "toggleSwitch":{"@":"toggleSwitch"}
+            }
+        },
+
+        "feedSelect": {
+            "prototype": "digit/ui/select.reel",
+            "properties": {
+                "element": {"#": "feedSelect"},
+                "contentController": {"@": "feedSelectController"},
+                "labelPropertyName": "name",
+                "textPropertyPath": "name",
+                "valuePropertyPath": "slug"
+            }
+        },
+
+        "rssView": {
+            "prototype": "ui/rss-view.reel",
+            "properties": {
+                "element": {"#": "rssView"}
+            },
+            "bindings": {
+                "article": {"<-": "@list.selectedArticle"},
+                 "site": {"<-": "@rssController.site"}
+            }
+        },
+
+        "header": {
+            "prototype": "/ui/bar.reel",
+            "properties": {
+                "element": {"#": "header"}
+            }
+        },
+        "footer": {
+            "prototype": "/ui/bar.reel",
+            "properties": {
+                "element": {"#": "footer"}
+            }
+        },
+        "unreadCount": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "unreadCount"},
+                "label": "10",
+                "value": "8"
+            },
+            "bindings": {
+                "value": {"<-": "@rssController.articles.filter{!isRead}.length"}
+            }
+        },
+        "logo": {
+            "prototype": "/ui/logo.reel",
+            "properties": {
+                "element": {"#": "logo"},
+                "toggleSwitch":{"@":"toggleSwitch"}
+            },
+
+            "bindings": {
+                "showBack": { "<-": "@toggleSwitch.checked" }
+            }
+        },
+        "search": {
+            "prototype": "digit/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "search"},
+                "placeholderValue": "Search"
+            }
+        },
+        "title": {
+            "prototype": "digit/ui/title.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+
+            "bindings":{
+                "value":{"<-":"@rssController.site.name"}
+            }
+        },
+        "toggleSwitch": {
+            "prototype": "digit/ui/toggle-switch.reel",
+            "properties": {
+                "element": {"#": "toggleSwitch"}
+            }
+
+        },
+        "listHeader": {
+            "prototype": "/ui/bar.reel",
+            "properties": {
+                "element": {"#": "listHeader"}
+            }
+        },
+
+        "splitter": {
+            "prototype": "/ui/splitter.reel",
+            "properties": {
+                "element": {"#": "splitter"}
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<div data-montage-id="main" class="App">
+    <header data-montage-id="header">
+        <div data-montage-id="logo"></div>
+        <h1 data-montage-id="title"></h1>
+        <span data-montage-id="unreadCount" class="unread-count"></span>
+    </header>
+    <main class="Main" data-montage-id="splitter">
+        <aside class="Splitter-item Splitter-item--aside">
+            <header data-montage-id="listHeader">
+                <input data-montage-id="search" type="search">
+            </header>
+            <div data-montage-id="list"></div>
+            <div class="bottom-bar">
+                <select data-montage-id="feedSelect" class="rssDemo-Main-aside-footer-select"></select>
+            </div>
+        </aside>
+        <main class="Splitter-item Splitter-item--main">
+            <!--<div data-montage-id="grid"></div>-->
+            <div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>
+        </main>
+    </main>
+    <footer class="Footer" data-montage-id="footer">
+        <input data-montage-id="toggleSwitch" type="checkbox">
+    </footer>
+</div>
+</body>
+</html>

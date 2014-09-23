@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="list.css">
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "list"}
+                },
+
+                "bindings":{
+                    "selectedArticle":{"<-":"@articleListController.selection.0"}
+                }
+
+            },
+
+            "rep": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": { "#": "rep" },
+                    "isSelectionEnabled": true,
+                     "contentController":{"@":"articleListController"}
+
+                }
+
+            },
+
+            "articleListController": {
+                "prototype": "montage/core/range-controller",
+
+                "bindings": {
+                    "content": {"<-": "@owner.contentController.articles"}
+                }
+            },
+
+
+            "item": {
+                "prototype": "ui/list-item.reel",
+                "properties": {
+                    "element": { "#": "item" }
+                },
+                "bindings":{
+                    "article":{"<-":"@rep:iteration.object"}
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<div data-montage-id="list" class="List">
+    <ul data-montage-id="rep">
+        <li data-montage-id="item" class="List-item"></li>
+    </ul>
+</div>
+</body>
+</html>

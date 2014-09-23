@@ -1,0 +1,59 @@
+.App {
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity .6s;
+}
+
+.montage-app-loaded .App {
+    opacity: 1;
+}
+
+.Main {
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.bottom-bar {
+    height: 57px;
+    background: #ffffff;
+    position: absolute;
+    bottom: 0px;
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 0.4rem;
+    width: 100%;
+}
+
+.rssDemo-Main-aside-footer-select {
+    display: block;
+    -webkit-box-flex: 1;
+    width: 100%;
+}
+
+.unread-count {
+    width: 2.5em;
+    height: 2.5em;
+    line-height: 2.4;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 1.25em;
+    border: 2px solid;
+}
+
+@media (min-width: 800px) {
+
+    /* Hide Footer on wide screens */
+    .Footer {
+        display: none;
+    }
+
+}

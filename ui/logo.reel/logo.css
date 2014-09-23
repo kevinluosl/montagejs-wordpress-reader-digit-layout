@@ -1,0 +1,26 @@
+.Logo {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.Logo-svg {
+    fill: inherit;
+    height: 100%;
+}
+
+.back {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    line-height: 1.5;
+    border: none;
+}
+
+.logo-png {
+    display: block;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    background: url(../../assets/images/wp-logo-white.png) no-repeat center center;
+    background-size: 40px 40px;
+}

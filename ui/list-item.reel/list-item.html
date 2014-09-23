@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="list-item.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "item"}
+            },
+             "bindings": {
+                "classList.has('highlight')": {"<-": "!article.isRead"}
+            }
+        },
+
+         "title": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.article.title"}
+            }
+        }
+    }
+
+
+    </script>
+</head>
+<body>
+<li data-montage-id="item" class="List-item">
+    <label data-montage-id="title" class="Label"></label>
+</li>
+</body>
+</html>

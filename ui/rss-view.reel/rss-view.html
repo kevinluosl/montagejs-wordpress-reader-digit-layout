@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="../../assets/fonts/fonts.css" rel="stylesheet">
+    <link href="rss-view.css" rel="stylesheet">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "prototype": "ui/rss-view.reel",
+            "properties": {
+                "element": {"#": "rss-view"}
+            }
+        },
+        "author": {
+            "prototype": "digit/ui/text.reel",
+            "properties": {
+                "element": {"#": "author"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.article.author.username"}
+            }
+        },
+        "description": {
+            "prototype": "matte/ui/dynamic-element.reel",
+            "properties": {
+                "element": {"#": "description"},
+                "allowedTagNames": [
+                    "*"
+                ]
+            },
+            "bindings": {
+                "innerHTML": {"<-": "@owner.article.content"}
+            }
+        },
+
+        "featuredImage": {
+            "prototype": "matte/ui/dynamic-element.reel",
+            "properties": {
+                "element": {"#": "featuredImage"},
+                "allowedTagNames": [
+                    "*"
+                ]
+            },
+            "bindings": {
+                "innerHTML": {"<-": "@owner.article.featured_image.content"}
+            }
+        },
+
+        "substitution": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "substitution"}
+            },
+            "bindings": {
+                "switchValue": {"<-": "!!@owner.article ? 'article' : 'cover'"}
+            }
+        },
+        "title": {
+            "prototype": "digit/ui/title.reel",
+            "properties": {
+                "element": {"#": "title"}
+            },
+            "bindings": {
+                "value": {"<-": "@owner.article.title"}
+            }
+        }
+
+    }
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<section data-montage-id="rss-view" class="rss-RssView">
+    <div data-montage-id="substitution">
+        <article data-arg="cover" class="rss-RssView-cover">
+            <div class="rss-RssView-cover-frame"></div>
+            <div class="rss-RssView-cover-shadow"></div>
+        </article>
+        <article data-arg="article" class="rss-RssView-article">
+            <h2 data-montage-id="title" class="rss-RssView-article-title"></h2>
+
+            <div data-montage-id="featuredImage" class="rss-RssView-article-media">
+
+            </div>
+            <p data-montage-id="description" class="rss-RssView-article-description"></p>
+
+            <div data-montage-id="author" class="rss-RssView-article-author"></div>
+        </article>
+    </div>
+    <footer class="rss-RssView-footer">
+        © 2014 Powered by Montagejs.
+    </footer>
+</section>
+</body>
+</html>

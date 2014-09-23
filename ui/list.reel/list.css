@@ -1,0 +1,45 @@
+/* List ---------------------------------- */
+
+.List {
+
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+}
+
+.List ul {
+    -webkit-flex: 1;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.List-item {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: 0.4rem;
+    border-bottom: 1px solid hsla(0, 0%, 0%, .1);
+}
+
+.List-item > * {
+    margin: 0.4rem;
+}
+
+/* List-item items ------------------------------------------------------------------------ */
+
+.List .Label {
+    flex: 1;
+    text-align: left;
+    line-height: 2;
+}
+
+
+.highlight,
+.highlight.active {
+    box-shadow: inset 4px 0 0 hsl(210, 100%, 50%);
+}
