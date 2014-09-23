@@ -15,6 +15,16 @@ exports.List = Component.specialize( /** @lends List# */ {
 		}
 	},
 
+	enterDocument: {
+		value: function( firstTime ) {
+			if ( firstTime ) {
+
+			}
+		}
+	},
+
+
+
 	templateDidLoad: {
 		value: function() {
 
