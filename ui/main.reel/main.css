@@ -18,19 +18,12 @@
 }
 
 .bottom-bar {
-    height: 57px;
     background: #ffffff;
-    position: absolute;
-    bottom: 0px;
-
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
+    position: relative;
     padding: 0.4rem;
     width: 100%;
+    flex: 0 0 3rem;
+    -webkit-flex: 0 0 3rem;
 }
 
 .rssDemo-Main-aside-footer-select {

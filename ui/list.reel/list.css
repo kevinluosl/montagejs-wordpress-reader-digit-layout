@@ -4,6 +4,8 @@
 
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    flex: 1;
+    -webkit-flex: 1;
 
 }
 
