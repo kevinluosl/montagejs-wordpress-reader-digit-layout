@@ -20,7 +20,6 @@ body {
     font-size: 16px; /* Sizing of components */
 }
 
-
 /* Loader -------------------------------------------- */
 
 .Loader {
@@ -44,20 +43,37 @@ body {
     animation: Loader--animate 3.6s linear infinite;
 }
 
-@-webkit-keyframes Loader--animate { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes Loader--animate { 100% {         transform: rotate(360deg); } }
+@-webkit-keyframes Loader--animate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes Loader--animate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.Footer{
+    padding: 0.5rem;
+}
 
 /*.Loader-logo {*/
-    /*display: block;*/
-    /*margin: auto;*/
-    /*width: 80px;*/
-    /*height: 80px;*/
-    /*fill: #fff;*/
+/*display: block;*/
+/*margin: auto;*/
+/*width: 80px;*/
+/*height: 80px;*/
+/*fill: #fff;*/
 /*}*/
 
 /*.Loader-path {*/
-    /*-webkit-animation: Loader--animate 1.2s cubic-bezier(1, 0, 1, 1) infinite alternate;*/
-            /*animation: Loader--animate 1.2s cubic-bezier(1, 0, 1, 1) infinite alternate;*/
+/*-webkit-animation: Loader--animate 1.2s cubic-bezier(1, 0, 1, 1) infinite alternate;*/
+/*animation: Loader--animate 1.2s cubic-bezier(1, 0, 1, 1) infinite alternate;*/
 /*}*/
 
 /*.Loader-path--1 { opacity: 1.0;  -webkit-animation-delay: -0.8s; animation-delay: -0.8s; }*/
@@ -65,4 +81,4 @@ body {
 /*.Loader-path--3 { opacity: 0.25; -webkit-animation-delay:    0s; animation-delay:    0s; }*/
 
 /*@-webkit-keyframes Loader--animate { 100% { opacity: .1; } }*/
-        /*@keyframes Loader--animate { 100% { opacity: .1; } }*/
+/*@keyframes Loader--animate { 100% { opacity: .1; } }*/

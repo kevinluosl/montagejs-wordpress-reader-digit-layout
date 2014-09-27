@@ -16,19 +16,7 @@ exports.Logo = Component.specialize( /** @lends Logo# */ {
 	},
 
 	showBack: {
-		set: function( value ) {
-
-			if ( document.getElementsByClassName( 'Footer' ).length > 0 &&
-				window.getComputedStyle( document.getElementsByClassName( 'Footer' )[0] ).display === 'none' ) {
-				this._showBack = false;
-			} else {
-				this._showBack = value;
-			}
-		},
-
-		get: function() {
-			return this._showBack;
-		}
+		value:false
 	},
 
 	templateDidLoad: {
@@ -41,7 +29,7 @@ exports.Logo = Component.specialize( /** @lends Logo# */ {
 
 	handleEvent: {
 		value: function( e ) {
-			this.toggleSwitch.checked = false;
+			this.list.isView = false;
 		}
 	}
 

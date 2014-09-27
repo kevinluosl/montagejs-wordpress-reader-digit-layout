@@ -13,7 +13,7 @@
                 "element": {"#": "main"}
             },
             "bindings": {
-                "classList.has('is-detail')": { "<-": "@toggleSwitch.checked" }
+                "classList.has('is-detail')": { "<-": "@list.isView" }
             }
         },
 
@@ -39,8 +39,7 @@
             "prototype": "ui/list.reel",
             "properties": {
                 "element": {"#": "list"},
-                 "contentController": {"@":"rssController"},
-                 "toggleSwitch":{"@":"toggleSwitch"}
+                 "contentController": {"@":"rssController"}
             }
         },
 
@@ -58,7 +57,10 @@
         "rssView": {
             "prototype": "ui/rss-view.reel",
             "properties": {
-                "element": {"#": "rssView"}
+                "element": {"#": "rssView"},
+                "list":{"@":"list"},
+                "footer":{"@":"footer"}
+
             },
             "bindings": {
                 "article": {"<-": "@list.selectedArticle"},
@@ -76,6 +78,9 @@
             "prototype": "/ui/bar.reel",
             "properties": {
                 "element": {"#": "footer"}
+            },
+             "bindings": {
+                "classList.has('hidden')": { "<-": "!@list.isView" }
             }
         },
         "unreadCount": {
@@ -93,11 +98,11 @@
             "prototype": "/ui/logo.reel",
             "properties": {
                 "element": {"#": "logo"},
-                "toggleSwitch":{"@":"toggleSwitch"}
+                "list":{"@":"list"}
             },
 
             "bindings": {
-                "showBack": { "<-": "@toggleSwitch.checked" }
+                "showBack": { "<-": "@list.isView" }
             }
         },
         "search": {
@@ -117,13 +122,6 @@
                 "value":{"<-":"@rssController.site.name"}
             }
         },
-        "toggleSwitch": {
-            "prototype": "digit/ui/toggle-switch.reel",
-            "properties": {
-                "element": {"#": "toggleSwitch"}
-            }
-
-        },
         "listHeader": {
             "prototype": "/ui/bar.reel",
             "properties": {
@@ -138,6 +136,17 @@
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -173,7 +182,8 @@
         </main>
     </main>
     <footer class="Footer" data-montage-id="footer">
-        <input data-montage-id="toggleSwitch" type="checkbox">
+        <!--<input data-montage-id="toggleSwitch" type="checkbox">-->
+        <span>Swipe to switch articles</span>
     </footer>
 </div>
 </body>

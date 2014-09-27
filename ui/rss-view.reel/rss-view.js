@@ -5,17 +5,26 @@
  */
 var Montage = require( "montage" ).Montage,
 	Component = require( "montage/ui/component" ).Component,
-	Promise = require( "montage/core/promise" ).Promise;
+	Promise = require( "montage/core/promise" ).Promise,
+	SwipeComposer = require( "montage/composer/swipe-composer" ).SwipeComposer;
 
 exports.RssView = Montage.create( Component, /** @lends module:"ui/rss-view.reel".RssView# */ {
 	_article: {value: null},
 	site: {value: null},
+	footer: {value: null},
 
 	article: {
 		set: function( value ) {
 			var self = this;
 
 			if ( value ) {
+				if ( !this.swipeComposer ) {
+					this.swipeComposer = new SwipeComposer();
+					var widget = this.footer;
+					this.addComposerForElement( this.swipeComposer, widget.element );
+					this.swipeComposer.addEventListener( "swipe", this, false );
+				}
+
 				Promise.nextTick( function() {
 					self._article = value;
 					value.isRead = true;
@@ -29,6 +38,16 @@ exports.RssView = Montage.create( Component, /** @lends module:"ui/rss-view.reel
 		}
 	},
 
+	handleSwipe: {
+		value: function( event ) {
+			if ( event.direction === 'RIGHT' ) {
+				this.list.openNext()
+			} else if ( event.direction === 'LEFT' ) {
+				this.list.openPrev()
+			}
+		}
+	},
+
 	enterDocument: {
 		value: function( firstTime ) {
 
@@ -39,6 +58,6 @@ exports.RssView = Montage.create( Component, /** @lends module:"ui/rss-view.reel
 		value: function() {
 
 		}
-	},
+	}
 
 } );

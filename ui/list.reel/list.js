@@ -15,6 +15,19 @@ exports.List = Component.specialize( /** @lends List# */ {
 		}
 	},
 
+
+	selectedArticle: {
+		value: null
+	},
+
+	isView: {
+		value: false
+	},
+
+	selectedIndex: {
+		value: 0
+	},
+
 	enterDocument: {
 		value: function( firstTime ) {
 			if ( firstTime ) {
@@ -22,8 +35,6 @@ exports.List = Component.specialize( /** @lends List# */ {
 			}
 		}
 	},
-
-
 
 	templateDidLoad: {
 		value: function() {
@@ -34,11 +45,31 @@ exports.List = Component.specialize( /** @lends List# */ {
 		}
 	},
 
+	openNext: {
+		value: function() {
+			if ( this.selectedIndex + 1 <= this.templateObjects.rep.content.length - 1 ) {
+				this.selectedArticle = this.templateObjects.rep.content[this.selectedIndex + 1 ];
+				this.selectedIndex = this.selectedIndex + 1;
+			}
+		}
+	},
+
+	openPrev: {
+		value: function() {
+			if ( this.selectedIndex - 1 >= 0 ) {
+				this.selectedArticle = this.templateObjects.rep.content[this.selectedIndex - 1 ];
+				this.selectedIndex = this.selectedIndex - 1;
+			}
+		}
+	},
+
 	handleSelection: {
 		value: function( selected ) {
+
+			this.selectedIndex = this.templateObjects.rep.selectedIndexes[this.templateObjects.rep.selectedIndexes.length - 1];
 			var $this = this;
 			if ( selected ) {
-				this.toggleSwitch.checked = true;
+				this.isView = true;
 			}
 		}
 	}
