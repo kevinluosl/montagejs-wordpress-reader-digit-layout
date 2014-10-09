@@ -15,7 +15,6 @@ exports.List = Component.specialize( /** @lends List# */ {
 		}
 	},
 
-
 	selectedArticle: {
 		value: null
 	},
@@ -68,7 +67,7 @@ exports.List = Component.specialize( /** @lends List# */ {
 
 			this.selectedIndex = this.templateObjects.rep.selectedIndexes[this.templateObjects.rep.selectedIndexes.length - 1];
 			var $this = this;
-			if ( selected ) {
+			if ( selected && document.body.clientWidth <= 800 ) {
 				this.isView = true;
 			}
 		}
