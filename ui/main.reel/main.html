@@ -20,7 +20,7 @@
         "rssController": {
             "prototype": "core/controller/rss-controller",
             "properties": {
-                "rssUrl": "http://104.131.138.118/wp-json"
+                "rssUrl": ""
             },
             "bindings": {
                 "category": {"<-": "@feedSelectController.selection.0.slug"},
@@ -58,8 +58,7 @@
             "prototype": "ui/rss-view.reel",
             "properties": {
                 "element": {"#": "rssView"},
-                "list":{"@":"list"},
-                "footer":{"@":"footer"}
+                "list":{"@":"list"}
 
             },
             "bindings": {
@@ -72,15 +71,6 @@
             "prototype": "/ui/bar.reel",
             "properties": {
                 "element": {"#": "header"}
-            }
-        },
-        "footer": {
-            "prototype": "/ui/bar.reel",
-            "properties": {
-                "element": {"#": "footer"}
-            },
-             "bindings": {
-                "classList.has('hidden')": { "<-": "!@list.isView" }
             }
         },
         "unreadCount": {
@@ -157,6 +147,7 @@
 
 
 
+
     </script>
 </head>
 <body>
@@ -181,10 +172,10 @@
             <div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>
         </main>
     </main>
-    <footer class="Footer" data-montage-id="footer">
-        <!--<input data-montage-id="toggleSwitch" type="checkbox">-->
-        <span>Swipe to switch articles</span>
-    </footer>
+    <!--<footer class="Footer" data-montage-id="footer">-->
+    <!--&lt;!&ndash;<input data-montage-id="toggleSwitch" type="checkbox">&ndash;&gt;-->
+    <!--<span>Swipe to switch articles</span>-->
+    <!--</footer>-->
 </div>
 </body>
 </html>

@@ -11,8 +11,6 @@ var Montage = require( "montage" ).Montage,
 exports.RssView = Montage.create( Component, /** @lends module:"ui/rss-view.reel".RssView# */ {
 	_article: {value: null},
 	site: {value: null},
-	footer: {value: null},
-
 	article: {
 		set: function( value ) {
 			var self = this;
@@ -20,7 +18,8 @@ exports.RssView = Montage.create( Component, /** @lends module:"ui/rss-view.reel
 			if ( value ) {
 				if ( !this.swipeComposer ) {
 					this.swipeComposer = new SwipeComposer();
-					var widget = this.footer;
+					debugger
+					var widget = this.templateObjects.substitution;
 					this.addComposerForElement( this.swipeComposer, widget.element );
 					this.swipeComposer.addEventListener( "swipe", this, false );
 				}
@@ -41,9 +40,9 @@ exports.RssView = Montage.create( Component, /** @lends module:"ui/rss-view.reel
 	handleSwipe: {
 		value: function( event ) {
 			if ( event.direction === 'RIGHT' ) {
-				this.list.openNext()
-			} else if ( event.direction === 'LEFT' ) {
 				this.list.openPrev()
+			} else if ( event.direction === 'LEFT' ) {
+				this.list.openNext()
 			}
 		}
 	},
