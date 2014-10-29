@@ -20,11 +20,12 @@
         "rssController": {
             "prototype": "core/controller/rss-controller",
             "properties": {
-                "rssUrl": ""
+                "rssUrl": "http://104.131.138.118/wp-json"
             },
             "bindings": {
                 "category": {"<-": "@feedSelectController.selection.0.slug"},
-                "filterTerm": {"<-": "@search.value"}
+                "filterTerm": {"<-": "@search.value"},
+                "unreadCount":{"<-": "@unreadCount"}
             }
         },
 
@@ -49,7 +50,6 @@
                 "element": {"#": "feedSelect"},
                 "contentController": {"@": "feedSelectController"},
                 "labelPropertyName": "name",
-                "textPropertyPath": "name",
                 "valuePropertyPath": "slug"
             }
         },
@@ -99,7 +99,7 @@
             "prototype": "digit/ui/text-field.reel",
             "properties": {
                 "element": {"#": "search"},
-                "placeholderValue": "Search"
+                "placeholderValue": "搜索"
             }
         },
         "title": {
@@ -128,30 +128,11 @@
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 </head>
 <body>
 <div data-montage-id="main" class="App">
+
     <header data-montage-id="header">
         <div data-montage-id="logo"></div>
         <h1 data-montage-id="title"></h1>

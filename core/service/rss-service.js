@@ -8,8 +8,8 @@ exports.RssService = Montage.specialize( {
 	},
 
 	constructor: {
-		value: function RssService() {
-
+		value: function RssService( url ) {
+			this.url = url;
 		}
 	},
 

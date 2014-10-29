@@ -6,6 +6,10 @@ var Montage = require( "montage" ).Montage,
 
 exports.RssController = Montage.specialize( {
 
+	_rssUrl: {
+		value: null,
+	},
+
 	constructor: {
 		value: function RssController() {
 
@@ -17,7 +21,13 @@ exports.RssController = Montage.specialize( {
 	},
 
 	rssUrl: {
-		value: null
+		set: function( val ) {
+			this._rssUrl = val;
+		},
+
+		get: function() {
+			return this._rssUrl;
+		}
 	},
 
 	rssService: {
@@ -100,7 +110,6 @@ exports.RssController = Montage.specialize( {
 
 	initPostData: {
 		value: function() {
-
 			var self = this;
 
 			if ( this.categoryCache[this.category ] ) {
@@ -147,12 +156,29 @@ exports.RssController = Montage.specialize( {
 
 			this.addOwnPropertyChangeListener( "_articles", this, false );
 			this.addOwnPropertyChangeListener( "filterTerm", this, false );
+//			this.addPathChangeListener( "filterTerm", this, "handleFilterTermChange" );
 			this.addPathChangeListener( "rssUrl", this, "handleRssUrlChange" );
-
 //			this.addOwnPropertyChangeListener( "rssUrl", this, "handleRssUrlChange", );
+
+//			debugger
+//
 
 		}
 	},
+
+//	handleAction: {
+//		value: function( e ) {
+//			debugger
+//		}
+//	},
+
+//	handleFilterTermChange: {
+//		value: function() {
+//
+//			debugger
+//
+//		}
+//	},
 
 	handlePropertyChange: {
 		value: function( value, key ) {
