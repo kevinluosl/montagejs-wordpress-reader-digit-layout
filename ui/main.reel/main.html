@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        App
+        WordPress Demo
     </title>
     <link rel="stylesheet" href="main.css">
     <script type="text/montage-serialization">
@@ -99,7 +99,7 @@
             "prototype": "digit/ui/text-field.reel",
             "properties": {
                 "element": {"#": "search"},
-                "placeholderValue": "搜索"
+                "placeholderValue": "Search title."
             }
         },
         "title": {
@@ -124,6 +124,34 @@
             "properties": {
                 "element": {"#": "splitter"}
             }
+        },
+        "listBtn": {
+            "prototype": "ui/image-button.reel",
+            "properties": {
+                "element": {"#": "listBtn"},
+                "src":"../../assets/images/textlist.png"
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "useCapture": false,
+                    "listener": {"@": "owner"}
+                }
+            ]
+        },
+        "flowBtn": {
+            "prototype": "ui/image-button.reel",
+            "properties": {
+                "element": {"#": "flowBtn"},
+                "src":"../../assets/images/images.png"
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "useCapture": false,
+                    "listener": {"@": "owner"}
+                }
+            ]
         }
     }
 
@@ -135,6 +163,10 @@
 
     <header data-montage-id="header">
         <div data-montage-id="logo"></div>
+        <div class="MenuList">
+            <img  data-montage-id="listBtn" />
+            <img data-montage-id="flowBtn" />
+        </div>
         <h1 data-montage-id="title"></h1>
         <span data-montage-id="unreadCount" class="unread-count"></span>
     </header>

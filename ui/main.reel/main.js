@@ -17,7 +17,12 @@ exports.Main = Component.specialize( /** @lends Main# */ {
 
 	templateDidLoad: {
 		value: function() {
+        }
+	},
 
-		}
-	}
+    handleEvent: {
+        value: function() {
+            debugger
+        }
+    }
 } );
