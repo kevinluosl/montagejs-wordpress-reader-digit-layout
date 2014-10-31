@@ -118,6 +118,22 @@
                     "listener": {"@": "owner"}
                 }
             ]
+        },
+        "closeButton": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "closeButton"},
+                "label": "×"
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "!@owner.showArticle"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "listener": {"@": "owner"}
+                }
+            ]
         }
     }
     </script>
@@ -132,6 +148,7 @@
         </div>
         <h1 data-montage-id="title"></h1>
         <span data-montage-id="unreadCount" class="unread-count"></span>
+        <button data-montage-id="closeButton" class="Header-closeButton"></button>
     </header>
     <div data-montage-id="substitution">
         <article data-arg="TextArt" class="TextArticle">

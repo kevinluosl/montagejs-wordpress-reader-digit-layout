@@ -13,5 +13,8 @@ exports.ImagesArticles = Component.specialize(/** @lends ImagesArticles# */ {
         value: function ImagesArticles() {
             this.super();
         }
+    },
+    selectedPost:{
+        value:null
     }
 });

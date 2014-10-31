@@ -9,23 +9,8 @@
                 "properties": {
                     "element": {"#": "bar"}
                 }
-            },
-            "closeButton": {
-            "prototype": "digit/ui/button.reel",
-            "properties": {
-                "element": {"#": "closeButton"},
-                "label": "×"
-            },
-            "bindings": {
-                "classList.has('is-hidden')": {"<-": "!@owner.selectedPost"}
-            },
-            "listeners": [
-                {
-                    "type": "action",
-                    "listener": {"@": "owner"}
-                }
-            ]
-        }
+            }
+
         }
 
     </script>
@@ -33,7 +18,6 @@
 <body>
 	<div data-montage-id="bar" class="Bar">
         <div data-param="*"></div>
-        <button data-montage-id="closeButton" class="Header-closeButton"></button>
 	</div>
 </body>
 </html>

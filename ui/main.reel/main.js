@@ -19,6 +19,9 @@ exports.Main = Component.specialize( /** @lends Main# */ {
             return this._unreadLength;
         }
     },
+    showArticle:{
+        value:null
+    },
     ImgORText:{
          set: function( val ) {
             this._ImgORText = val;
@@ -35,7 +38,11 @@ exports.Main = Component.specialize( /** @lends Main# */ {
 	},
     handleAction:{
         value: function(event){
-            if (event.target.identifier=="listBtn")
+            if (event.target.identifier=="closeButton")
+            {
+                this.dispatchEventNamed("hidePost", true, true);
+            }
+            else if (event.target.identifier=="listBtn")
             {
                 this.ImgORText="text";
             }
