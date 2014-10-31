@@ -9,6 +9,14 @@ var Component = require( "montage/ui/component" ).Component;
  * @extends Component
  */
 exports.Main = Component.specialize( /** @lends Main# */ {
+
+    // "value": {"<-": "@rssController.articles.filter{!isRead}.length"}
+    unreadLength:{
+        value:null
+    },
+    ImgORText:{
+        value:null
+    },
 	constructor: {
 		value: function Main() {
 			this.super();
@@ -18,11 +26,5 @@ exports.Main = Component.specialize( /** @lends Main# */ {
 	templateDidLoad: {
 		value: function() {
         }
-	},
-
-    handleEvent: {
-        value: function() {
-            debugger
-        }
-    }
+	}
 } );

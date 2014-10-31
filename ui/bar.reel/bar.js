@@ -13,5 +13,10 @@ exports.Bar = Component.specialize(/** @lends Bar# */ {
         value: function Bar() {
             this.super();
         }
+    },
+    handleCloseButtonAction: {
+        value: function() {
+            this.dispatchEventNamed("hidePost", true, true);
+        }
     }
 });

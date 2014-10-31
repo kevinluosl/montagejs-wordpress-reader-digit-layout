@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WordPress Demo</title>
+    <link rel="stylesheet" type="text/css" href="text-articles.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "owner"}
+            },
+            "bindings": {
+                "classList.has('is-detail')": { "<-": "@list.isView" }
+            }
+        },
+         "list": {
+            "prototype": "ui/list.reel",
+            "properties": {
+                "element": {"#": "list"}
+            },
+             "bindings": {
+                "contentController":{"<-":"@owner.rssController"}
+            }
+        },
+
+        "feedSelect": {
+            "prototype": "digit/ui/select.reel",
+            "properties": {
+                "element": {"#": "feedSelect"},
+                "labelPropertyName": "name",
+                "valuePropertyPath": "slug"
+            },
+             "bindings": {
+                "contentController":{"<-":"@owner.feedSelectController"}
+            }
+        },
+
+        "rssView": {
+            "prototype": "ui/rss-view.reel",
+            "properties": {
+                "element": {"#": "rssView"},
+                "list":{"@":"list"}
+
+            },
+            "bindings": {
+                "article": {"<-": "@list.selectedArticle"},
+                 "site": {"<-": "@owner.rssController.site"}
+            }
+        },
+
+
+        "search": {
+            "prototype": "digit/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "search"},
+                "placeholderValue": "Search title."
+            }
+        },
+
+        "listHeader": {
+            "prototype": "/ui/bar.reel",
+            "properties": {
+                "element": {"#": "listHeader"}
+            }
+        },
+
+        "splitter": {
+            "prototype": "/ui/splitter.reel",
+            "properties": {
+                "element": {"#": "splitter"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="owner" class="TextArticles">
+        <main class="Main" data-montage-id="splitter">
+            <aside class="Splitter-item Splitter-item--aside">
+                <header data-montage-id="listHeader" class="search-bar">
+                    <input data-montage-id="search" type="search">
+                </header>
+                <div data-montage-id="list"></div>
+                <div class="bottom-bar">
+                    <select data-montage-id="feedSelect" class="rssDemo-Main-aside-footer-select"></select>
+                </div>
+            </aside>
+            <main class="Splitter-item Splitter-item--main">
+                <!--<div data-montage-id="grid"></div>-->
+                <div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>
+            </main>
+        </main>
+    </div>
+</body>
+</html>

@@ -4,10 +4,12 @@ var Montage = require( "montage" ).Montage,
 	RssService = require( "../service/rss-service" ).RssService,
 	RSSCategory = require( "../model/rss-category" ).RSSCategory;
 
+
+//  "filterTerm": {"<-": "@search.value"}
 exports.RssController = Montage.specialize( {
 
 	_rssUrl: {
-		value: null,
+		value: null
 	},
 
 	constructor: {
@@ -154,11 +156,13 @@ exports.RssController = Montage.specialize( {
 	didCreate: {
 		value: function() {
 
+
 			this.addOwnPropertyChangeListener( "_articles", this, false );
 			this.addOwnPropertyChangeListener( "filterTerm", this, false );
 //			this.addPathChangeListener( "filterTerm", this, "handleFilterTermChange" );
 			this.addPathChangeListener( "rssUrl", this, "handleRssUrlChange" );
 //			this.addOwnPropertyChangeListener( "rssUrl", this, "handleRssUrlChange", );
+
 
 //			debugger
 //

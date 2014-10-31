@@ -1,0 +1,75 @@
+.ImagesArticles {
+
+}
+/** {*/
+    /*background: #ffffff;*/
+/*}*/
+.searchbar {
+   width: 200px;
+    position: relative;
+    left:50%;
+    right:50%;
+    background: #ffffff;
+    color:black;
+}
+
+.bottom-bar{
+    color:black;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    position: relative;
+    width:50%;
+    left:50%;
+}
+
+.MainScreen {
+    background: #ffffff;
+}
+
+.Flow {
+    position: absolute;
+    top:16%;
+    left:0;
+}
+
+.Flow-item {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+.Flow-item-wrapper {
+    position: absolute;
+    -webkit-transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.Flow-item.selected .Flow-item-wrapper {
+    background-color: transparent;
+    -webkit-animation: displaycard 1.5s both normal;
+}
+
+@-webkit-keyframes displaycard {
+    0% {
+        -webkit-transform: none;
+    }
+
+    30% {
+        -webkit-transform: translateX(200px);
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    60% {
+        -webkit-transform: translateX(100px) rotateY(181deg) translateZ(-400px);
+        -webkit-animation-timing-function: ease-in;
+    }
+
+    100% {
+        -webkit-transform: translateX(0px) rotateY(181deg) translateZ(-500px) scale3d(5,5,5);
+    }
+}
