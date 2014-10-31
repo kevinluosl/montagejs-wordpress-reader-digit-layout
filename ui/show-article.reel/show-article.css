@@ -1,3 +1,80 @@
 .ShowArticle {
+    top: 0; left: 0; bottom: 0; right: 0;
+    position: absolute;
+    font-family: Open Sans, sans-serif;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: hsl(0,0%,100%);
+}
 
+@media (min-width: 500px) { .Show { font-size: 1.2em; } }
+@media (min-width: 800px) { .Show { font-size: 1.4em; } }
+
+.Show-content {
+    padding: 1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: hsl(0,0%, 20%);
+}
+
+.Show-imageWrapper {
+    max-height: 80%; /* Fallback */
+    max-height: calc(100% - 5.5em);
+    overflow: hidden;
+}
+
+.Show-image {
+    display: block;
+    width: 100%;
+    -webkit-user-drag: none;
+}
+
+.Show-heading {
+    font-family: "Bitter";
+    font-size: 1.8em;
+    font-weight: 400;
+}
+
+.Show-copy {
+    line-height: 1.5em;
+    font-size: .9em;
+}
+
+.Show-button.digit-Button {
+    position: fixed;
+    top: 2em;
+    left: 0;
+    font-size: 32px;
+    font-family: "FontAwesome";
+    border: none;
+    color: hsl(0, 100%, 100%);
+    margin: 0;
+    padding: 1em;
+    border-radius: 0;
+    text-shadow: 0 0 1px hsl(0, 0%, 0%);
+    height: auto;
+    min-width: 0;
+    -webkit-transform: translateZ(0); /* Put onto own layer to avoid jumping */
+}
+
+.Show-button.digit-Button:focus {
+    box-shadow: none;
+}
+
+.Show-button.digit-Button.montage--active {
+    color: hsla(0,0%,100%,.5);
+    background: transparent;
+}
+.Show {
+    opacity: 0;
+    z-index: 0;
+}
+
+ .Show--revealed {
+    opacity: 1;
+    z-index: 15;
+    -webkit-transition: opacity 1000ms;
+    -webkit-transition-delay: 1200ms;
 }

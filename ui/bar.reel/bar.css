@@ -98,5 +98,5 @@
 }
 
 .Header-closeButton.is-hidden {
-    visibility: hidden;
+    display: none;
 }

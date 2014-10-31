@@ -18,7 +18,8 @@
                 "valuePropertyPath": "slug"
             },
              "bindings": {
-                "contentController":{"<-":"@owner.feedSelectController"}
+                "contentController":{"<-":"@owner.feedSelectController"},
+                "classList.has('HideControl')": {"<-": "@postsController.selection.0"}
             }
         },
         "search": {
@@ -26,6 +27,9 @@
             "properties": {
                 "element": {"#": "search"},
                 "placeholderValue": "Search title."
+            },
+            "bindings": {
+                "classList.has('HideControl')": {"<-": "@postsController.selection.0"}
             }
         },
         "postsController": {
@@ -149,26 +153,39 @@
             "bindings": {
                 "articles": {"<-": "@flow:iteration.object"}
             }
+        },
+        "showArticles": {
+            "prototype": "ui/show-article.reel",
+            "properties": {
+                "element": {"#": "showArticles"}
+            },
+            "bindings": {
+                "classList.has('Show--revealed')": {"<-": "@postsController.selection.0"},
+                "articles": {"<-": "@postsController.selection.0"}
+            }
         }
     }
+
     </script>
 </head>
 <body>
-    <div data-montage-id="owner" class="ImagesArticles">
-        <input data-montage-id="search" type="search" class="searchbar">
-        <div class="MainScreen" >
-            <div data-montage-id="flow" class="Flow">
-                <div class="Flow-item js-card">
-                    <div class="Flow-item-wrapper">
-                        <div data-montage-id="card"></div>
-                    </div>
+<div data-montage-id="owner" class="ImagesArticles">
+    <input data-montage-id="search" type="search" class="searchbar">
+
+    <div class="MainScreen">
+        <div data-montage-id="showArticles" id="blog-show-article"></div>
+        <div data-montage-id="flow" class="Flow">
+            <div class="Flow-item js-card">
+                <div class="Flow-item-wrapper">
+                    <div data-montage-id="card"></div>
                 </div>
             </div>
         </div>
-        <div class="bottom-bar">
-            <select data-montage-id="feedSelect" class="rssDemo-Main-aside-footer-select"></select>
-        </div>
-        <p/>
     </div>
+    <div class="bottom-select">
+        <select data-montage-id="feedSelect" class="feedSelectClass"></select>
+    </div>
+    <p/>
+</div>
 </body>
 </html>

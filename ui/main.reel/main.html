@@ -41,7 +41,7 @@
         },
 
         "header": {
-            "prototype": "/ui/bar.reel",
+            "prototype": "ui/bar.reel",
             "properties": {
                 "element": {"#": "header"}
             }
@@ -89,12 +89,12 @@
             }
 
         },
-
         "listBtn": {
             "prototype": "ui/image-button.reel",
             "properties": {
                 "element": {"#": "listBtn"},
-                "src":"../../assets/images/textlist.png"
+                "src":"../../assets/images/textlist.png",
+                "identifier": "listBtn"
             },
             "listeners": [
                 {
@@ -108,7 +108,8 @@
             "prototype": "ui/image-button.reel",
             "properties": {
                 "element": {"#": "flowBtn"},
-                "src":"../../assets/images/images.png"
+                "src":"../../assets/images/images.png",
+                "identifier": "flowBtn"
             },
             "listeners": [
                 {
@@ -119,8 +120,6 @@
             ]
         }
     }
-
-
     </script>
 </head>
 <body>
@@ -132,9 +131,7 @@
             <img data-montage-id="flowBtn" />
         </div>
         <h1 data-montage-id="title"></h1>
-
         <span data-montage-id="unreadCount" class="unread-count"></span>
-
     </header>
     <div data-montage-id="substitution">
         <article data-arg="TextArt" class="TextArticle">
@@ -155,12 +152,12 @@
             <!--</div>-->
         <!--</aside>-->
         <!--<main class="Splitter-item Splitter-item--main">-->
-            <!--<!--<div data-montage-id="grid"></div>-->-->
+            <!--<div data-montage-id="grid"></div>-->
             <!--<div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>-->
         <!--</main>-->
     <!--</main>-->
     <!--<footer class="Footer" data-montage-id="footer">-->
-    <!--<!--<input data-montage-id="toggleSwitch" type="checkbox">-->-->
+    <!--<input data-montage-id="toggleSwitch" type="checkbox">-->
     <!--<span>Swipe to switch articles</span>-->
     <!--</footer>-->
 </div>

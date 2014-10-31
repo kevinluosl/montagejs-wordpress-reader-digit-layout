@@ -1,35 +1,31 @@
 .ImagesArticles {
 
 }
-/** {*/
-    /*background: #ffffff;*/
-/*}*/
 .searchbar {
    width: 200px;
     position: relative;
     left:50%;
     right:50%;
-    background: #ffffff;
-    color:black;
 }
 
-.bottom-bar{
-    color:black;
+.bottom-select{
     padding-left: 0.4rem;
     padding-right: 0.4rem;
     padding-top: 0.2rem;
     position: relative;
-    width:50%;
     left:50%;
+    width:200px;
 }
 
 .MainScreen {
-    background: #ffffff;
+    position: relative;
+    height: 800px;
 }
 
 .Flow {
     position: absolute;
-    top:16%;
+    background: transparent;
+    top:0;
     left:0;
 }
 
@@ -73,3 +69,4 @@
         -webkit-transform: translateX(0px) rotateY(181deg) translateZ(-500px) scale3d(5,5,5);
     }
 }
+
