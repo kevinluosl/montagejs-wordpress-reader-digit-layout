@@ -38,16 +38,7 @@
                 "content": {"<-": "@owner.rssController.articles"}
             }
         },
-        "actionEventListener": {
-            "prototype": "montage/core/event/action-event-listener",
-            "properties": {
-                "action": "clearSelection",
-                "handler": {"@": "postsController"}
-            },
-            "_dev": {
-                "isHidden": true
-            }
-        },
+
         "flow": {
             "prototype": "montage/ui/flow.reel",
             "properties": {
@@ -160,9 +151,11 @@
                 "element": {"#": "showArticles"}
             },
             "bindings": {
+                "article": {"<-": "@postsController.selection.0"},
                 "classList.has('Show--revealed')": {"<-": "@postsController.selection.0"},
-                "articles": {"<-": "@postsController.selection.0"},
-                "showArticle":{"<-": "@postsController.selection.0"}
+                "dataController": {"<-": "@postsController"},
+                "mainController":{"<-": "@owner.rssController"},
+                "unReadLen":{"<-": "@owner.rssController.articles.filter{!isRead}.length"}
             }
         }
     }

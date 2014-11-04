@@ -2,7 +2,8 @@ var Montage = require( "montage" ).Montage,
 	RssArticle = require( "./../model/rss-article" ).RssArticle,
 	RssSite = require( "./../model/rss-site" ).RssSite,
 	RssService = require( "../service/rss-service" ).RssService,
-	RSSCategory = require( "../model/rss-category" ).RSSCategory;
+	RSSCategory = require( "../model/rss-category" ).RSSCategory,
+    RSSMainInfo = require( "../model/rss_MainInfo" ).RssMainInfo;
 
 
 //  "filterTerm": {"<-": "@search.value"}
@@ -24,6 +25,7 @@ exports.RssController = Montage.specialize( {
 
 	rssUrl: {
 		set: function( val ) {
+            this._mainInfo=RSSMainInfo.create();
 			this._rssUrl = val;
 		},
 
@@ -80,6 +82,15 @@ exports.RssController = Montage.specialize( {
 		}
 	},
 
+    mainInfo:{
+      set:function(val){
+          this._mainInfo=val;
+      },
+      get:function(){
+          return this._mainInfo;
+      }
+    },
+
 	initSiteInfo: {
 		value: function() {
 			var self = this;
@@ -96,7 +107,6 @@ exports.RssController = Montage.specialize( {
 			var self = this;
 			this.rssService.getCategories().then( function( result ) {
 				self._categoriesRssData = result;
-
 				var categories = [RSSCategory.create().init( {name: 'Recent Posts', slug: 'all', count: '-1'} )];
 				for ( var i = 0; i < self._categoriesRssData.length; i++ ) {
 

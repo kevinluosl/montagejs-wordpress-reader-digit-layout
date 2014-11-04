@@ -5,7 +5,8 @@
     overflow-x: auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    background-color: hsl(0,0%,100%);
+    background: white;
+    height:500px;
 }
 
 @media (min-width: 500px) { .Show { font-size: 1.2em; } }
@@ -40,6 +41,7 @@
 .Show-copy {
     line-height: 1.5em;
     font-size: .9em;
+
 }
 
 .Show-button.digit-Button {
@@ -78,3 +80,31 @@
     -webkit-transition: opacity 1000ms;
     -webkit-transition-delay: 1200ms;
 }
+
+.Btn-closeArticle {
+    position:absolute;
+    right:0;
+    top:0;
+    line-height: 1;
+    font-size: 24px;
+    padding: 0;
+    width: 2em;
+    height: 2em;
+    min-width: 0;
+    border: none;
+    z-index: 3;
+}
+
+.Btn-closeArticle:focus {
+    box-shadow: none;
+}
+
+.Btn-closeArticle.is-hidden {
+    display: none;
+}
+
+.HideScreen {
+    display: none;
+    z-index:-15;
+}
+

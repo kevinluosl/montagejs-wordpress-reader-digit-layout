@@ -9,6 +9,8 @@ var Component = require("montage/ui/component").Component;
  * @extends Component
  */
 exports.Card = Component.specialize(/** @lends Card# */ {
+
+
     constructor: {
         value: function Card() {
             this.super();

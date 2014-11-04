@@ -29,10 +29,8 @@
             },
             "bindings": {
                 "category": {"<-": "@feedSelectController.selection.0.slug"}
-
             }
         },
-
         "feedSelectController": {
             "prototype": "montage/core/range-controller",
             "bindings": {
@@ -50,8 +48,7 @@
          "TextArtPart": {
             "prototype": "ui/text-articles.reel",
             "properties": {
-                "element": {"#": "TextArtPart"},
-                "unreadCount":{"@":"unreadCount"}
+                "element": {"#": "TextArtPart"}
             },
            "bindings": {
                 "rssController": {"<-": "@rssController"},
@@ -78,14 +75,18 @@
                 "value": "8"
             },
             "bindings": {
-                "value": {"<-": "@owner.unreadLength"}
+                "classList.has('HideElement')": {"<-": "!@rssController.mainInfo.unReadCnt"},
+                "value": {"<-": "@rssController.mainInfo.unReadCnt"}
             }
         },
-
         "title": {
             "prototype": "digit/ui/title.reel",
             "properties": {
                 "element": {"#": "title"}
+            },
+            "bindings": {
+                "classList.has('HideElement')": {"<-": "!@rssController.mainInfo.title"},
+                "value": {"<-": "@rssController.mainInfo.title"}
             }
 
         },
@@ -118,22 +119,6 @@
                     "listener": {"@": "owner"}
                 }
             ]
-        },
-        "closeButton": {
-            "prototype": "digit/ui/button.reel",
-            "properties": {
-                "element": {"#": "closeButton"},
-                "label": "×"
-            },
-            "bindings": {
-                "classList.has('is-hidden')": {"<-": "!@owner.showArticle"}
-            },
-            "listeners": [
-                {
-                    "type": "action",
-                    "listener": {"@": "owner"}
-                }
-            ]
         }
     }
     </script>
@@ -146,9 +131,8 @@
             <img  data-montage-id="listBtn" />
             <img data-montage-id="flowBtn" />
         </div>
-        <h1 data-montage-id="title"></h1>
+        <h1 data-montage-id="title" class="MainScreenTitle"></h1>
         <span data-montage-id="unreadCount" class="unread-count"></span>
-        <button data-montage-id="closeButton" class="Header-closeButton"></button>
     </header>
     <div data-montage-id="substitution">
         <article data-arg="TextArt" class="TextArticle">

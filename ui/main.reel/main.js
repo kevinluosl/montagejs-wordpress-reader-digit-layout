@@ -19,9 +19,6 @@ exports.Main = Component.specialize( /** @lends Main# */ {
             return this._unreadLength;
         }
     },
-    showArticle:{
-        value:null
-    },
     ImgORText:{
          set: function( val ) {
             this._ImgORText = val;
@@ -53,7 +50,10 @@ exports.Main = Component.specialize( /** @lends Main# */ {
         }
     },
 	templateDidLoad: {
-		value: null
+		value: function(){
+
+        }
+
 //            function() {
 //            var listenobj={};
 //            listenobj.handlelistBtnAction=function(event){

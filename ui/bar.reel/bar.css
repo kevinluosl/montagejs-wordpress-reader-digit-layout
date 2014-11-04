@@ -83,20 +83,3 @@
     -webkit-flex: 0 0 3rem;
 }
 
-.Header-closeButton {
-    line-height: 1;
-    font-size: 24px;
-    padding: 0;
-    width: 2em;
-    height: 2em;
-    min-width: 0;
-    border: none;
-}
-
-.Header-closeButton:focus {
-    box-shadow: none;
-}
-
-.Header-closeButton.is-hidden {
-    display: none;
-}

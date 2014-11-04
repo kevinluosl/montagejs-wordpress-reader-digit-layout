@@ -17,7 +17,7 @@
                 "value": "Text"
             },
             "bindings": {
-                "value": {"<-": "@owner.articles.content"}
+                "value": {"<-": "@owner.article.content"}
             }
         },
         "showHeading": {
@@ -27,7 +27,7 @@
                 "value": "Text"
             },
             "bindings": {
-                "value": {"<-": "@owner.articles.title"}
+                "value": {"<-": "@owner.article.title"}
             }
         },
         "showImage": {
@@ -37,14 +37,32 @@
                 "crossOrigin": null
             },
             "bindings": {
-                "src": {"<-": "@owner.articles.featured_image.source"}
+                "src": {"<-": "@owner.article.featured_image.source"}
             }
+        },
+        "closeArticle": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "closeArticle"},
+                "label": "×"
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "!@owner.article"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "useCapture": false,
+                    "listener": {"@": "owner"}
+                }
+            ]
         }
     }
     </script>
 </head>
 <body>
     <div data-montage-id="owner" class="ShowArticle">
+        <button data-montage-id="closeArticle" class="Btn-closeArticle"></button>
         <div class="Show-imageWrapper">
             <img data-montage-id="showImage" class="Show-image" >
         </div>

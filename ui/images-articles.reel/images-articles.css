@@ -1,14 +1,18 @@
 .ImagesArticles {
-
+    background: white;
 }
 .searchbar {
    width: 200px;
     position: relative;
     left:50%;
     right:50%;
+    background: white;
+    color:black
 }
 
 .bottom-select{
+    color:black;
+    background: white;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
     padding-top: 0.2rem;
@@ -19,7 +23,7 @@
 
 .MainScreen {
     position: relative;
-    height: 800px;
+    height: 500px;
 }
 
 .Flow {
