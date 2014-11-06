@@ -17,7 +17,6 @@ exports.TextArticles = Component.specialize(/** @lends TextArticles# */ {
     rssController:{
         set:function(val){
             this._rssController = val;
-
         },
 
         get:function(){
@@ -30,7 +29,6 @@ exports.TextArticles = Component.specialize(/** @lends TextArticles# */ {
             if(isFirstTime){
                 this.defineBinding("rssController.filterTerm",{"<-":"templateObjects.search.value"});
             }
-
         }
     }
 });

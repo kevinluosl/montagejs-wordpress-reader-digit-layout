@@ -22,28 +22,23 @@
             }
         },
         "description": {
-            "prototype": "matte/ui/dynamic-element.reel",
-            "properties": {
+           "prototype": "ui/html.reel",
+           "properties": {
                 "element": {"#": "description"},
-                "allowedTagNames": [
-                    "*"
-                ]
+                "value": "Text"
             },
             "bindings": {
-                "innerHTML": {"<-": "@owner.article.content"}
+                "value": {"<-": "@owner.article.content"}
             }
         },
 
         "featuredImage": {
-            "prototype": "matte/ui/dynamic-element.reel",
+            "prototype": "digit/ui/image.reel",
             "properties": {
-                "element": {"#": "featuredImage"},
-                "allowedTagNames": [
-                    "*"
-                ]
+                "element": {"#": "featuredImage"}
             },
             "bindings": {
-                "innerHTML": {"<-": "@owner.article.featured_image.content"}
+                "src": {"<-": "@owner.article.featured_image.source"}
             }
         },
 
@@ -68,16 +63,11 @@
 
     }
 
-
-
-
-
-
     </script>
 </head>
 <body>
 <section data-montage-id="rss-view" class="rss-RssView">
-    <div data-montage-id="substitution">
+    <div data-montage-id="substitution" class="rssviewMain">
         <article data-arg="cover" class="rss-RssView-cover">
             <div class="rss-RssView-cover-frame"></div>
             <div class="rss-RssView-cover-shadow"></div>
@@ -85,9 +75,7 @@
         <article data-arg="article" class="rss-RssView-article">
             <h2 data-montage-id="title" class="rss-RssView-article-title"></h2>
 
-            <div data-montage-id="featuredImage" class="rss-RssView-article-media">
-
-            </div>
+            <img data-montage-id="featuredImage" class="rss-RssView-article-media" />
             <p data-montage-id="description" class="rss-RssView-article-description"></p>
 
             <div data-montage-id="author" class="rss-RssView-article-author"></div>

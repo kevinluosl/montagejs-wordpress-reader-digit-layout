@@ -45,6 +45,7 @@
     margin: 0 0 20px 0;
     width: 100%;
     text-align: center;
+    position:relative;
 }
 
 .rss-RssView.podd .rss-RssView-article-media img {
@@ -111,7 +112,7 @@
     -webkit-hyphens: auto;
     color: hsl(0, 0%, 30%);
     text-shadow: 0 1px 0 hsla(0, 0%, 100%, .6);
-    clear: both; /* because the video is float: left */
+    position: relative;
 }
 
 .rss-RssView-article-author {

@@ -1,6 +1,5 @@
 .Main {
-    -webkit-flex: 1;
-    flex: 1;
+    position: relative;
 }
 
 .bottom-bar {

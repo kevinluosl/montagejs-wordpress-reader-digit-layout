@@ -44,7 +44,6 @@ exports.ShowArticle = Component.specialize(/** @lends ShowArticle# */ {
     didCreate:{
         value:function(){
             this.addPathChangeListener( "article", this, "setMainInfo" );
-
             this.defineBinding("mainController.mainInfo.unReadCnt", {
                 "<-": "unReadLen"
             });
