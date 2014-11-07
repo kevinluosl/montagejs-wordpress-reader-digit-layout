@@ -78,7 +78,7 @@
     background-color: hsla(0, 0%, 0%, 0.72);
 }
 
-.search-bar {
+.Bar > .search-bar {
     flex: 0 0 3rem;
     -webkit-flex: 0 0 3rem;
 }

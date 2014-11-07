@@ -1,36 +1,55 @@
 .ImagesArticles {
     background: white;
-}
-.searchbar {
-   width: 200px;
-    position: relative;
-    left:50%;
-    right:50%;
-    background: white;
-    color:black
+    height: 100%;
 }
 
-.bottom-select{
-    color:black;
-    background: white;
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
-    padding-top: 0.2rem;
+.flow-view {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    background: #FAFAF5;
+}
+
+.ImagesArticles .search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.ImagesArticles .search-input {
+    color: #000000;
+
+    flex: 1;
+
+}
+
+.ImagesArticles .bottom-select-bar {
+    color: black;
     position: relative;
-    left:50%;
-    width:200px;
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.ImagesArticles .bottom-select {
+    flex: 1;
 }
 
 .MainScreen {
     position: relative;
-    height: 500px;
+    flex: 1;
 }
 
 .Flow {
     position: absolute;
     background: transparent;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .Flow-item {
@@ -70,7 +89,7 @@
     }
 
     100% {
-        -webkit-transform: translateX(0px) rotateY(181deg) translateZ(-500px) scale3d(5,5,5);
+        -webkit-transform: translateX(0px) rotateY(181deg) translateZ(-500px) scale3d(5, 5, 5);
     }
 }
 

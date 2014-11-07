@@ -59,14 +59,34 @@
             "bindings": {
                 "value": {"<-": "@owner.article.title"}
             }
+        },
+
+        "closeArticle": {
+            "prototype": "digit/ui/button.reel",
+            "properties": {
+                "element": {"#": "closeArticle"},
+                "label": "X"
+            },
+            "bindings": {
+                "classList.has('is-hidden')": {"<-": "!@owner.article"}
+            },
+            "listeners": [
+                {
+                    "type": "action",
+                    "useCapture": false,
+                    "listener": {"@": "owner"}
+                }
+            ]
         }
 
     }
+
 
     </script>
 </head>
 <body>
 <section data-montage-id="rss-view" class="rss-RssView">
+    <button data-montage-id="closeArticle" class="Btn-closeArticle"></button>
     <div data-montage-id="substitution" class="rssviewMain">
         <article data-arg="cover" class="rss-RssView-cover">
             <div class="rss-RssView-cover-frame"></div>
@@ -75,7 +95,8 @@
         <article data-arg="article" class="rss-RssView-article">
             <h2 data-montage-id="title" class="rss-RssView-article-title"></h2>
 
-            <img data-montage-id="featuredImage" class="rss-RssView-article-media" />
+            <img data-montage-id="featuredImage" class="rss-RssView-article-media"/>
+
             <p data-montage-id="description" class="rss-RssView-article-description"></p>
 
             <div data-montage-id="author" class="rss-RssView-article-author"></div>

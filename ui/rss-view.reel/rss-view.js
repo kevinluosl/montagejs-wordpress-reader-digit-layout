@@ -46,6 +46,12 @@ exports.RssView = Montage.create( Component, /** @lends module:"ui/rss-view.reel
 		}
 	},
 
+	handleAction: {
+		value: function( event ) {
+			this.list.isView = false;
+		}
+	},
+
 	enterDocument: {
 		value: function( firstTime ) {
 

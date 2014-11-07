@@ -1,3 +1,9 @@
+.TextArticles {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .Main {
     position: relative;
 }

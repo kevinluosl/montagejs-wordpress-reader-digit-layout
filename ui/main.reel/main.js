@@ -10,50 +10,46 @@ var Component = require( "montage/ui/component" ).Component;
  */
 exports.Main = Component.specialize( /** @lends Main# */ {
 
-    // "value": {"<-": "@rssController.articles.filter{!isRead}.length"}
-    unreadLength:{
-        set: function(val) {
-            this._unreadLength=val;
-        },
-        get:function(){
-            return this._unreadLength;
-        }
-    },
-    ImgORText:{
-         set: function( val ) {
-            this._ImgORText = val;
-        },
+	unreadLength: {
+		set: function( val ) {
+			this._unreadLength = val;
+		},
+		get: function() {
+			return this._unreadLength;
+		}
+	},
+	flowOrList: {
+		set: function( val ) {
+			this._flowOrList = val;
+		},
 
-        get: function() {
-            return this._ImgORText;
-        }
-    },
+		get: function() {
+			return this._flowOrList;
+		}
+	},
 	constructor: {
 		value: function Main() {
 			this.super();
-            this._ImgORText=null;
+			this._flowOrList = "FlowPart";
 		}
 	},
-    handleAction:{
-        value: function(event){
-            if (event.target.identifier=="closeButton")
-            {
-                this.dispatchEventNamed("hidePost", true, true);
-            }
-            else if (event.target.identifier=="listBtn")
-            {
-                this.ImgORText="text";
-            }
-            else
-            {
-                this.ImgORText=null;
-            }
-        }
-    },
+	handleAction: {
+		value: function( event ) {
+			if ( event.target.identifier == "closeButton" ) {
+				this.dispatchEventNamed( "hidePost", true, true );
+			}
+			else if ( event.target.identifier == "listBtn" ) {
+				this.flowOrList = "TextArt";
+			}
+			else {
+				this.flowOrList = "FlowPart";
+			}
+		}
+	},
 	templateDidLoad: {
-		value: function(){
+		value: function() {
 
-        }
+		}
 
 //            function() {
 //            var listenobj={};

@@ -19,7 +19,7 @@
                 "element": {"#": "substitution"}
             },
             "bindings": {
-                "switchValue": {"<-": "!!@owner.ImgORText ? 'TextArt' : 'ImgArt'"}
+                "switchValue": {"<-": "@owner.flowOrList"}
             }
         },
          "rssController": {
@@ -55,11 +55,10 @@
                 "feedSelectController":{"<-":"@feedSelectController"}
             }
          },
-         "ImageArtPart": {
+         "FlowView": {
             "prototype": "ui/images-articles.reel",
             "properties": {
-                "element": {"#": "ImageArtPart"},
-                "unreadCount":{"@":"unreadCount"}
+                "element": {"#": "FlowView"}
             },
             "bindings": {
                 "rssController": {"<-": "@rssController"},
@@ -70,9 +69,7 @@
           "unreadCount": {
             "prototype": "digit/ui/text.reel",
             "properties": {
-                "element": {"#": "unreadCount"},
-                "label": "10",
-                "value": "8"
+                "element": {"#": "unreadCount"}
             },
             "bindings": {
                 "classList.has('HideElement')": {"<-": "!@rssController.mainInfo.unReadCnt"},
@@ -94,7 +91,7 @@
             "prototype": "ui/image-button.reel",
             "properties": {
                 "element": {"#": "listBtn"},
-                "src":"../../assets/images/textlist.png",
+                "src":"../../assets/images/list.png",
                 "identifier": "listBtn"
             },
             "listeners": [
@@ -109,7 +106,7 @@
             "prototype": "ui/image-button.reel",
             "properties": {
                 "element": {"#": "flowBtn"},
-                "src":"../../assets/images/images.png",
+                "src":"../../assets/images/flow.png",
                 "identifier": "flowBtn"
             },
             "listeners": [
@@ -121,46 +118,24 @@
             ]
         }
     }
+
+
     </script>
 </head>
 <body>
 <div data-montage-id="main" class="App">
-    <header data-montage-id="header" class="headerbar">
-        <div data-montage-id="logo"></div>
+    <header data-montage-id="header">
         <div class="MenuList">
-            <img  data-montage-id="listBtn" />
-            <img data-montage-id="flowBtn" />
+            <img data-montage-id="listBtn" class="list-view-icon"/>
+            <img data-montage-id="flowBtn" class="flow-view-icon"/>
         </div>
-        <h1 data-montage-id="title" class="MainScreenTitle"></h1>
+        <h1 data-montage-id="title"></h1>
         <span data-montage-id="unreadCount" class="unread-count"></span>
     </header>
-    <div data-montage-id="substitution" class="DetailsScreen">
-        <article data-arg="TextArt" class="TextArticle">
-            <div data-montage-id="TextArtPart"/>
-        </article>
-        <article data-arg="ImgArt" class="ImageArticle">
-            <div data-montage-id="ImageArtPart"/>
-        </article>
+    <div data-montage-id="substitution" class="substitution">
+        <div data-montage-id="TextArtPart" data-arg="TextArt"></div>
+        <div data-montage-id="FlowView" data-arg="FlowPart" class="flow-view"></div>
     </div>
-    <!--<main class="Main" data-montage-id="splitter">-->
-        <!--<aside class="Splitter-item Splitter-item--aside">-->
-            <!--<header data-montage-id="listHeader" class="search-bar">-->
-                <!--<input data-montage-id="search" type="search">-->
-            <!--</header>-->
-            <!--<div data-montage-id="list"></div>-->
-            <!--<div class="bottom-bar">-->
-                <!--<select data-montage-id="feedSelect" class="rssDemo-Main-aside-footer-select"></select>-->
-            <!--</div>-->
-        <!--</aside>-->
-        <!--<main class="Splitter-item Splitter-item--main">-->
-            <!--<div data-montage-id="grid"></div>-->
-            <!--<div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>-->
-        <!--</main>-->
-    <!--</main>-->
-    <!--<footer class="Footer" data-montage-id="footer">-->
-    <!--<input data-montage-id="toggleSwitch" type="checkbox">-->
-    <!--<span>Swipe to switch articles</span>-->
-    <!--</footer>-->
 </div>
 </body>
 </html>

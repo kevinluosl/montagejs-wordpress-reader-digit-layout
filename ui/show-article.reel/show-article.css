@@ -1,22 +1,45 @@
 .ShowArticle {
-    top: 0; left: 0; bottom: 0; right: 0;
-    position: relative;
+    top: -9px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
     font-family: Open Sans, sans-serif;
     overflow-x: auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     background: white;
+    flex: 1;
+    opacity: 0;
+    z-index: -100;
+
 }
 
-@media (min-width: 500px) { .Show { font-size: 1.2em; } }
-@media (min-width: 800px) { .Show { font-size: 1.4em; } }
+.Show--revealed {
+    opacity: 1;
+    z-index: 15;
+    -webkit-transition: opacity 1000ms;
+    -webkit-transition-delay: 1200ms;
+}
+
+@media (min-width: 500px) {
+    .Show {
+        font-size: 1.2em;
+    }
+}
+
+@media (min-width: 800px) {
+    .Show {
+        font-size: 1.4em;
+    }
+}
 
 .Show-content {
     padding: 1rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    color: hsl(0,0%, 20%);
+    color: hsl(0, 0%, 20%);
 }
 
 .Show-imageWrapper {
@@ -65,45 +88,41 @@
 }
 
 .Show-button.digit-Button.montage--active {
-    color: hsla(0,0%,100%,.5);
+    color: hsla(0, 0%, 100%, .5);
     background: transparent;
 }
+
 .Show {
     opacity: 0;
     z-index: 0;
 }
 
- .Show--revealed {
-    opacity: 1;
-    z-index: 15;
-    -webkit-transition: opacity 1000ms;
-    -webkit-transition-delay: 1200ms;
-}
-
-.Btn-closeArticle {
-    position:absolute;
-    right:0;
-    top:0;
+.ShowArticle .Btn-closeArticle {
+    position: absolute;
+    right: 0;
+    top: 0;
     line-height: 1;
     font-size: 24px;
     padding: 0;
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
     min-width: 0;
-    border: none;
     z-index: 3;
+    color: #666666;
+    background: #ffffff;
+    opacity: 0.8;
 }
 
-.Btn-closeArticle:focus {
+.ShowArticle .Btn-closeArticle:focus {
     box-shadow: none;
 }
 
-.Btn-closeArticle.is-hidden {
+.ShowArticle .Btn-closeArticle.is-hidden {
     display: none;
 }
 
 .HideScreen {
     display: none;
-    z-index:-15;
+    z-index: -15;
 }
 
