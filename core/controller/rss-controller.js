@@ -6,10 +6,6 @@ var Montage = require( "montage" ).Montage,
 
 exports.RssController = Montage.specialize( {
 
-	_rssUrl: {
-		value: null,
-	},
-
 	constructor: {
 		value: function RssController() {
 
@@ -20,6 +16,7 @@ exports.RssController = Montage.specialize( {
 		value: {}
 	},
 
+	// Property with setter and getter
 	rssUrl: {
 		set: function( val ) {
 			this._rssUrl = val;
@@ -30,7 +27,11 @@ exports.RssController = Montage.specialize( {
 		}
 	},
 
+	//Property
 	rssService: {
+		value: null
+	},
+	filterTerm: {
 		value: null
 	},
 
@@ -45,10 +46,6 @@ exports.RssController = Montage.specialize( {
 	_postRssData: {
 		value: null
 
-	},
-
-	filterTerm: {
-		value: null
 	},
 
 	_articles: {
@@ -141,9 +138,11 @@ exports.RssController = Montage.specialize( {
 			this.rssService = new RssService( this.rssUrl );
 
 			this.category = "";
-			//get wordpress site info
+
+			//get target WordPress site info
 			this.initSiteInfo();
 
+			//Get category list
 			this.initCategories();
 			//get post list
 			this.initPostData();
@@ -156,29 +155,10 @@ exports.RssController = Montage.specialize( {
 
 			this.addOwnPropertyChangeListener( "_articles", this, false );
 			this.addOwnPropertyChangeListener( "filterTerm", this, false );
-//			this.addPathChangeListener( "filterTerm", this, "handleFilterTermChange" );
 			this.addPathChangeListener( "rssUrl", this, "handleRssUrlChange" );
-//			this.addOwnPropertyChangeListener( "rssUrl", this, "handleRssUrlChange", );
-
-//			debugger
-//
 
 		}
 	},
-
-//	handleAction: {
-//		value: function( e ) {
-//			debugger
-//		}
-//	},
-
-//	handleFilterTermChange: {
-//		value: function() {
-//
-//			debugger
-//
-//		}
-//	},
 
 	handlePropertyChange: {
 		value: function( value, key ) {

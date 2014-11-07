@@ -15,6 +15,11 @@ exports.List = Component.specialize( /** @lends List# */ {
 		}
 	},
 
+	//Passed in RssController, see how we binding data from it
+	contentController: {
+		value: null
+	},
+
 	selectedArticle: {
 		value: null
 	},
