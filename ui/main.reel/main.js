@@ -2,56 +2,53 @@
  * @module ui/main.reel
  * @requires montage/ui/component
  */
-var Component = require( "montage/ui/component" ).Component;
+var Component = require("montage/ui/component").Component;
 
 /**
  * @class Main
  * @extends Component
  */
-exports.Main = Component.specialize( /** @lends Main# */ {
+exports.Main = Component.specialize(/** @lends Main# */ {
 
     // "value": {"<-": "@rssController.articles.filter{!isRead}.length"}
-    unreadLength:{
-        set: function(val) {
-            this._unreadLength=val;
+    unreadLength: {
+        set: function (val) {
+            this._unreadLength = val;
         },
-        get:function(){
+        get: function () {
             return this._unreadLength;
         }
     },
-    ImgORText:{
-         set: function( val ) {
-            this._ImgORText = val;
+    imgORText: {
+        set: function (val) {
+            this._imgORText = val;
         },
 
-        get: function() {
-            return this._ImgORText;
+        get: function () {
+            return this._imgORText;
         }
     },
-	constructor: {
-		value: function Main() {
-			this.super();
-            this._ImgORText=null;
-		}
-	},
-    handleAction:{
-        value: function(event){
-            if (event.target.identifier=="closeButton")
-            {
+    constructor: {
+        value: function Main() {
+            this.super();
+            this._imgORText = null;
+        }
+    },
+    handleAction: {
+        value: function (event) {
+            if (event.target.identifier == "closeButton") {
                 this.dispatchEventNamed("hidePost", true, true);
             }
-            else if (event.target.identifier=="listBtn")
-            {
-                this.ImgORText="text";
+            else if (event.target.identifier == "listBtn") {
+                this.imgORText = "text";
             }
-            else
-            {
-                this.ImgORText=null;
+            else {
+                this.imgORText = null;
             }
         }
     },
-	templateDidLoad: {
-		value: function(){
+    templateDidLoad: {
+        value: function () {
 
         }
 
@@ -71,5 +68,5 @@ exports.Main = Component.specialize( /** @lends Main# */ {
 //            var flowbtn=document.querySelector("#flowBtn");
 //            flowbtn.addEventListener("action",listenflow,false);
 //        }
-	}
-} );
+    }
+});

@@ -1,5 +1,8 @@
 .ShowArticle {
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     position: relative;
     font-family: Open Sans, sans-serif;
     overflow-x: auto;
@@ -8,15 +11,24 @@
     background: white;
 }
 
-@media (min-width: 500px) { .Show { font-size: 1.2em; } }
-@media (min-width: 800px) { .Show { font-size: 1.4em; } }
+@media (min-width: 500px) {
+    .Show {
+        font-size: 1.2em;
+    }
+}
+
+@media (min-width: 800px) {
+    .Show {
+        font-size: 1.4em;
+    }
+}
 
 .Show-content {
     padding: 1rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    color: hsl(0,0%, 20%);
+    color: hsl(0, 0%, 20%);
 }
 
 .Show-imageWrapper {
@@ -65,15 +77,16 @@
 }
 
 .Show-button.digit-Button.montage--active {
-    color: hsla(0,0%,100%,.5);
+    color: hsla(0, 0%, 100%, .5);
     background: transparent;
 }
+
 .Show {
     opacity: 0;
     z-index: 0;
 }
 
- .Show--revealed {
+.Show--revealed {
     opacity: 1;
     z-index: 15;
     -webkit-transition: opacity 1000ms;
@@ -81,9 +94,9 @@
 }
 
 .Btn-closeArticle {
-    position:absolute;
-    right:0;
-    top:0;
+    position: absolute;
+    right: 0;
+    top: 0;
     line-height: 1;
     font-size: 24px;
     padding: 0;
@@ -104,6 +117,6 @@
 
 .HideScreen {
     display: none;
-    z-index:-15;
+    z-index: -15;
 }
 

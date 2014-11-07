@@ -10,14 +10,14 @@ var Component = require("montage/ui/component").Component;
  */
 exports.ImagesArticles = Component.specialize(/** @lends ImagesArticles# */ {
 
-    rssController:{
-        set:function(val){
+    rssController: {
+        set: function (val) {
             this._rssController = val;
 //            this.defineBinding("rssController.categories",{"<-":"templateObjects.search.value"});
 
         },
 
-        get:function(){
+        get: function () {
             return this._rssController;
         }
     },
@@ -27,13 +27,13 @@ exports.ImagesArticles = Component.specialize(/** @lends ImagesArticles# */ {
             this.super();
         }
     },
-    selectedPost:{
-        value:null
+    selectedPost: {
+        value: null
     },
-    templateDidLoad:{
-        value:function(isFirstTime){
-            if (isFirstTime){
-                this.defineBinding("rssController.filterTerm",{"<-":"templateObjects.search.value"});
+    templateDidLoad: {
+        value: function (isFirstTime) {
+            if (isFirstTime) {
+                this.defineBinding("rssController.filterTerm", {"<-": "templateObjects.search.value"});
             }
         }
     }

@@ -45,7 +45,7 @@
     margin: 0 0 20px 0;
     width: 100%;
     text-align: center;
-    position:relative;
+    position: relative;
 }
 
 .rss-RssView.podd .rss-RssView-article-media img {
@@ -242,26 +242,26 @@
     position: relative;
 }
 
-.rss-RssView-article .gallery-item .landscape{
+.rss-RssView-article .gallery-item .landscape {
     height: 100px;
 }
 
-.rss-RssView-article .attachment-medium{
+.rss-RssView-article .attachment-medium {
     width: 864px;
     height: 576px;
 }
 
 @media (max-width: 1300px) {
-    .rss-RssView-article .attachment-medium{
+    .rss-RssView-article .attachment-medium {
         width: 100%;
         height: auto;
     }
 }
 
-.rss-RssView-article img.alignleft{
+.rss-RssView-article img.alignleft {
     margin: 7px 24px 7px 0;
 }
 
-.rss-RssView-article img.alignright{
+.rss-RssView-article img.alignright {
     margin: 7px 0 7px 24px;
 }

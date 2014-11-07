@@ -22,10 +22,9 @@
 }
 
 .Splitter-item--aside > .Bar {
-    background-color: hsla(0,0%,100%, 0.33);
+    background-color: hsla(0, 0%, 100%, 0.33);
     border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
 }
-
 
 @media (max-width: 799px) {
 
@@ -36,7 +35,10 @@
 
     .Splitter-item {
         position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         transition-property: opacity, transform;
         transition-duration: .4s;
     }
@@ -44,22 +46,23 @@
     .is-detail .Splitter-item--aside {
         pointer-events: none;
         opacity: 0;
-        -webkit-transform: translate3d(-50%,0,0);
-        transform: translate3d(-50%,0,0);
+        -webkit-transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
         transition-duration: 1s;
     }
-    
+
     .Splitter-item--main {
-        -webkit-transform: translate3d(100%,0,0);
-        transform: translate3d(100%,0,0);
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
     }
-    
+
     .is-detail .Splitter-item--main {
-        -webkit-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
 
 }
+
 @media (min-width: 800px) {
 
     .Splitter {

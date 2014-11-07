@@ -19,7 +19,7 @@
                 "element": {"#": "substitution"}
             },
             "bindings": {
-                "switchValue": {"<-": "!!@owner.ImgORText ? 'TextArt' : 'ImgArt'"}
+                "switchValue": {"<-": "!!@owner.imgORText ? 'TextArt' : 'ImgArt'"}
             }
         },
          "rssController": {
@@ -121,6 +121,7 @@
             ]
         }
     }
+
     </script>
 </head>
 <body>
@@ -128,8 +129,8 @@
     <header data-montage-id="header" class="headerbar">
         <div data-montage-id="logo"></div>
         <div class="MenuList">
-            <img  data-montage-id="listBtn" />
-            <img data-montage-id="flowBtn" />
+            <img data-montage-id="listBtn"/>
+            <img data-montage-id="flowBtn"/>
         </div>
         <h1 data-montage-id="title" class="MainScreenTitle"></h1>
         <span data-montage-id="unreadCount" class="unread-count"></span>
@@ -143,19 +144,19 @@
         </article>
     </div>
     <!--<main class="Main" data-montage-id="splitter">-->
-        <!--<aside class="Splitter-item Splitter-item--aside">-->
-            <!--<header data-montage-id="listHeader" class="search-bar">-->
-                <!--<input data-montage-id="search" type="search">-->
-            <!--</header>-->
-            <!--<div data-montage-id="list"></div>-->
-            <!--<div class="bottom-bar">-->
-                <!--<select data-montage-id="feedSelect" class="rssDemo-Main-aside-footer-select"></select>-->
-            <!--</div>-->
-        <!--</aside>-->
-        <!--<main class="Splitter-item Splitter-item--main">-->
-            <!--<div data-montage-id="grid"></div>-->
-            <!--<div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>-->
-        <!--</main>-->
+    <!--<aside class="Splitter-item Splitter-item--aside">-->
+    <!--<header data-montage-id="listHeader" class="search-bar">-->
+    <!--<input data-montage-id="search" type="search">-->
+    <!--</header>-->
+    <!--<div data-montage-id="list"></div>-->
+    <!--<div class="bottom-bar">-->
+    <!--<select data-montage-id="feedSelect" class="rssDemo-Main-aside-footer-select"></select>-->
+    <!--</div>-->
+    <!--</aside>-->
+    <!--<main class="Splitter-item Splitter-item--main">-->
+    <!--<div data-montage-id="grid"></div>-->
+    <!--<div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>-->
+    <!--</main>-->
     <!--</main>-->
     <!--<footer class="Footer" data-montage-id="footer">-->
     <!--<input data-montage-id="toggleSwitch" type="checkbox">-->

@@ -14,20 +14,20 @@ exports.TextArticles = Component.specialize(/** @lends TextArticles# */ {
             this.super();
         }
     },
-    rssController:{
-        set:function(val){
+    rssController: {
+        set: function (val) {
             this._rssController = val;
         },
 
-        get:function(){
+        get: function () {
             return this._rssController;
         }
     },
 
-    templateDidLoad:{
-        value:function(isFirstTime){
-            if(isFirstTime){
-                this.defineBinding("rssController.filterTerm",{"<-":"templateObjects.search.value"});
+    templateDidLoad: {
+        value: function (isFirstTime) {
+            if (isFirstTime) {
+                this.defineBinding("rssController.filterTerm", {"<-": "templateObjects.search.value"});
             }
         }
     }

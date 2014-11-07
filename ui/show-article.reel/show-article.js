@@ -2,7 +2,7 @@
  * @module ui/show-article.reel
  * @requires montage/ui/component
  */
-var Component = require("montage/ui/component").Component ;
+var Component = require("montage/ui/component").Component;
 
 /**
  * @class ShowArticle
@@ -14,45 +14,44 @@ exports.ShowArticle = Component.specialize(/** @lends ShowArticle# */ {
             this.super();
         }
     },
-    article:
-    {
-        set:function(val) {
-            this._article=val;
+    article: {
+        set: function (val) {
+            this._article = val;
         },
-        get:function() {
+        get: function () {
             return this._article;
         }
     },
-    enterDocument:{
-        value:null
+    enterDocument: {
+        value: null
 //        value:function(){
 //            this.mainController.mainInfo.title=this.article.title;
 //            this.mainController.mainInfo.unReadCnt=this.unReadLen;
 //        }
     },
     setMainInfo: {
-       value:function(){
-           if (this._article){
-                this.article.isRead=true;
-                this.mainController.mainInfo.title=this.article.title;
-           }
-         }
+        value: function () {
+            if (this._article) {
+                this.article.isRead = true;
+                this.mainController.mainInfo.title = this.article.title;
+            }
+        }
     },
-    didGetValue:{
-        value:null
+    didGetValue: {
+        value: null
     },
-    didCreate:{
-        value:function(){
-            this.addPathChangeListener( "article", this, "setMainInfo" );
+    didCreate: {
+        value: function () {
+            this.addPathChangeListener("article", this, "setMainInfo");
             this.defineBinding("mainController.mainInfo.unReadCnt", {
                 "<-": "unReadLen"
             });
         }
     },
-    handleAction:{
-        value:function(event){
+    handleAction: {
+        value: function (event) {
             this.dataController.clearSelection();
-            this.mainController.mainInfo.title="WordPress Demo";
+            this.mainController.mainInfo.title = "WordPress Demo";
 //            this.mainController.mainInfo.unReadCnt=0;
         }
     }

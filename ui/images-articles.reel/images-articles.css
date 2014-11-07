@@ -1,24 +1,25 @@
 .ImagesArticles {
     background: white;
 }
+
 .searchbar {
-   width: 200px;
+    width: 200px;
     position: relative;
-    left:50%;
-    right:50%;
+    left: 50%;
+    right: 50%;
     background: white;
-    color:black
+    color: black
 }
 
-.bottom-select{
-    color:black;
+.bottom-select {
+    color: black;
     background: white;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
     padding-top: 0.2rem;
     position: relative;
-    left:50%;
-    width:200px;
+    left: 50%;
+    width: 200px;
 }
 
 .MainScreen {
@@ -29,8 +30,8 @@
 .Flow {
     position: absolute;
     background: transparent;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
 }
 
 .Flow-item {
@@ -70,7 +71,7 @@
     }
 
     100% {
-        -webkit-transform: translateX(0px) rotateY(181deg) translateZ(-500px) scale3d(5,5,5);
+        -webkit-transform: translateX(0px) rotateY(181deg) translateZ(-500px) scale3d(5, 5, 5);
     }
 }
 
