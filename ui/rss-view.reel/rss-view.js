@@ -22,7 +22,7 @@ exports.RssView = Montage.create( Component, /** @lends module:"ui/rss-view.reel
 					this.addComposerForElement( this.swipeComposer, widget.element );
 					this.swipeComposer.addEventListener( "swipe", this, false );
 				}
-
+				//Why doing this nextTick?
 				Promise.nextTick( function() {
 					self._article = value;
 					value.isRead = true;

@@ -19,7 +19,7 @@
                 "element": {"#": "list"}
             },
              "bindings": {
-                "contentController":{"<-":"@owner.rssController"}
+                "rssController":{"<-":"@owner.rssController"}
             }
         },
 
@@ -75,24 +75,25 @@
             }
         }
     }
+
     </script>
 </head>
 <body>
-    <div data-montage-id="owner" class="TextArticles">
-        <div class="Main" data-montage-id="splitter">
-            <div class="Splitter-item Splitter-item--aside">
-                <header data-montage-id="listHeader" class="search-bar">
-                    <input data-montage-id="search" type="search">
-                </header>
-                <div data-montage-id="list"></div>
-                <div class="bottom-bar">
-                    <select data-montage-id="feedSelect" class="rssDemo-Main-aside-footer-select"></select>
-                </div>
-            </div>
-            <div class="Splitter-item Splitter-item--main">
-                <div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>
+<div data-montage-id="owner" class="TextArticles">
+    <div class="Main" data-montage-id="splitter">
+        <div class="Splitter-item Splitter-item--aside">
+            <header data-montage-id="listHeader" class="search-bar">
+                <input data-montage-id="search" type="search">
+            </header>
+            <div data-montage-id="list"></div>
+            <div class="bottom-bar">
+                <select data-montage-id="feedSelect" class="rssDemo-Main-aside-footer-select"></select>
             </div>
         </div>
+        <div class="Splitter-item Splitter-item--main">
+            <div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>
+        </div>
     </div>
+</div>
 </body>
 </html>

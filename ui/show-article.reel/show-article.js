@@ -17,6 +17,7 @@ exports.ShowArticle = Component.specialize( /** @lends ShowArticle# */ {
 	article: {
 		set: function( val ) {
 			this._article = val;
+
 		},
 		get: function() {
 			return this._article;

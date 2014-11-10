@@ -29,9 +29,8 @@
 
             "articleListController": {
                 "prototype": "montage/core/range-controller",
-
                 "bindings": {
-                    "content": {"<-": "@owner.contentController.articles"}
+                    "content": {"<-": "@owner.rssController.articles"}
                 }
             },
 
@@ -46,6 +45,7 @@
                 }
             }
         }
+
 
 
 

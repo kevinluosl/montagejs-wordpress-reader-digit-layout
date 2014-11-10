@@ -3,8 +3,7 @@ var Montage = require( "montage" ).Montage,
 	RssSite = require( "./../model/rss-site" ).RssSite,
 	RssService = require( "../service/rss-service" ).RssService,
 	RSSCategory = require( "../model/rss-category" ).RSSCategory,
-    RSSMainInfo = require( "../model/rss_MainInfo" ).RssMainInfo;
-
+	RSSMainInfo = require( "../model/rss_MainInfo" ).RssMainInfo;
 
 //  "filterTerm": {"<-": "@search.value"}
 exports.RssController = Montage.specialize( {
@@ -25,7 +24,7 @@ exports.RssController = Montage.specialize( {
 
 	rssUrl: {
 		set: function( val ) {
-            this._mainInfo=RSSMainInfo.create();
+			this._mainInfo = RSSMainInfo.create();
 			this._rssUrl = val;
 		},
 
@@ -82,14 +81,14 @@ exports.RssController = Montage.specialize( {
 		}
 	},
 
-    mainInfo:{
-      set:function(val){
-          this._mainInfo=val;
-      },
-      get:function(){
-          return this._mainInfo;
-      }
-    },
+	mainInfo: {
+		set: function( val ) {
+			this._mainInfo = val;
+		},
+		get: function() {
+			return this._mainInfo;
+		}
+	},
 
 	initSiteInfo: {
 		value: function() {
@@ -166,13 +165,11 @@ exports.RssController = Montage.specialize( {
 	didCreate: {
 		value: function() {
 
-
 			this.addOwnPropertyChangeListener( "_articles", this, false );
 			this.addOwnPropertyChangeListener( "filterTerm", this, false );
 //			this.addPathChangeListener( "filterTerm", this, "handleFilterTermChange" );
 			this.addPathChangeListener( "rssUrl", this, "handleRssUrlChange" );
 //			this.addOwnPropertyChangeListener( "rssUrl", this, "handleRssUrlChange", );
-
 
 //			debugger
 //
