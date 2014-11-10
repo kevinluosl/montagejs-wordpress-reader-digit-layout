@@ -43,9 +43,9 @@
 }
 
 .Show-imageWrapper {
+    position: relative;
     max-height: 80%; /* Fallback */
     max-height: calc(100% - 5.5em);
-    overflow: hidden;
 }
 
 .Show-image {
@@ -109,7 +109,7 @@
     min-width: 0;
     z-index: 3;
     color: #666666;
-    background: #ffffff;
+    background: gray;
     opacity: 0.8;
 }
 

@@ -94,6 +94,9 @@
                 "src":"../../assets/images/list.png",
                 "identifier": "listBtn"
             },
+             "bindings": {
+                "classList.has('buttonSelected')": {"<-": "@owner.flowOrList=='TextArt'"}
+            },
             "listeners": [
                 {
                     "type": "action",
@@ -108,6 +111,9 @@
                 "element": {"#": "flowBtn"},
                 "src":"../../assets/images/flow.png",
                 "identifier": "flowBtn"
+            },
+            "bindings": {
+                "classList.has('buttonSelected')": {"<-": "@owner.flowOrList=='FlowPart'"}
             },
             "listeners": [
                 {

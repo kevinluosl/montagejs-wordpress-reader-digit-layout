@@ -26,6 +26,11 @@ exports.TextArticles = Component.specialize( /** @lends TextArticles# */ {
 
 	templateDidLoad: {
 		value: function( isFirstTime ) {
+            if (this._rssController.filterTerm)
+            {
+                this.templateObjects.search.value=this._rssController.filterTerm;
+                this.templateObjects.search.text=this._rssController.filterTerm;
+            }
 			if ( isFirstTime ) {
 				this.defineBinding( "rssController.filterTerm", {"<-": "templateObjects.search.value"} );
 			}

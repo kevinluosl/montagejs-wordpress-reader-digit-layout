@@ -13,7 +13,6 @@ exports.ImagesArticles = Component.specialize( /** @lends ImagesArticles# */ {
 	rssController: {
 		set: function( val ) {
 			this._rssController = val;
-
 		},
 
 		get: function() {
@@ -31,6 +30,7 @@ exports.ImagesArticles = Component.specialize( /** @lends ImagesArticles# */ {
 	},
 	templateDidLoad: {
 		value: function( isFirstTime ) {
+
 			if ( isFirstTime ) {
 				this.defineBinding( "rssController.filterTerm", {"<-": "templateObjects.search.value"} );
 			}

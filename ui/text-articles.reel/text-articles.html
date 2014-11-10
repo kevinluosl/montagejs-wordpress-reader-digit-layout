@@ -54,6 +54,10 @@
             "properties": {
                 "element": {"#": "search"},
                 "placeholderValue": "Search title."
+            },
+            "bindings":{
+                "text":{"<-": "@owner.rssController.filterTerm"},
+                "value":{"<-": "@owner.rssController.filterTerm"}
             }
         },
 

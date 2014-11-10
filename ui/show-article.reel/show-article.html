@@ -37,7 +37,8 @@
                 "crossOrigin": null
             },
             "bindings": {
-                "src": {"<-": "@owner.article.featured_image.source"}
+                "src": {"<-": "@owner.article.featured_image.source"},
+                "classList.has('HideControl')": {"<-": "!@owner.article.featured_image"}
             }
         },
         "closeArticle": {
@@ -62,8 +63,9 @@
 </head>
 <body>
     <div data-montage-id="owner" class="ShowArticle">
-        <button data-montage-id="closeArticle" class="Btn-closeArticle"></button>
+
         <div class="Show-imageWrapper">
+            <button data-montage-id="closeArticle" class="Btn-closeArticle"></button>
             <img data-montage-id="showImage" class="Show-image" >
         </div>
         <div class="Show-content">

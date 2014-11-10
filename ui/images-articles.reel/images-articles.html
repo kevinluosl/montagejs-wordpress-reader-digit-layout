@@ -29,7 +29,9 @@
                 "placeholderValue": "Search title."
             },
             "bindings": {
-                "classList.has('HideControl')": {"<-": "@postsController.selection.0"}
+                "classList.has('HideControl')": {"<-": "@postsController.selection.0"},
+                "text":{"<-": "@owner.rssController.filterTerm"},
+                "value":{"<-": "@owner.rssController.filterTerm"}
             }
         },
         "postsController": {

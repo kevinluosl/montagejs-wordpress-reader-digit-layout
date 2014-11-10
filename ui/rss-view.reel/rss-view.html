@@ -38,7 +38,8 @@
                 "element": {"#": "featuredImage"}
             },
             "bindings": {
-                "src": {"<-": "@owner.article.featured_image.source"}
+                "src": {"<-": "@owner.article.featured_image.source"},
+                "classList.has('HideControl')": {"<-": "!@owner.article.featured_image"}
             }
         },
 
