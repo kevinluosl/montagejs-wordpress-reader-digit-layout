@@ -20,6 +20,7 @@
 
 .buttonSelected {
     border: 3px solid lightgray;
+    background: lightgray;
 }
 
 .unread-count {
