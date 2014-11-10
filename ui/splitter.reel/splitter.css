@@ -40,7 +40,7 @@
         right: 0;
         bottom: 0;
         transition-property: opacity, transform;
-        transition-duration: .4s;
+        transition-duration: 0.3s;
     }
 
     .is-detail .Splitter-item--aside {
