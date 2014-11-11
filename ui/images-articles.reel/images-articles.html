@@ -29,9 +29,9 @@
                 "placeholderValue": "Search title."
             },
             "bindings": {
-                "classList.has('HideControl')": {"<-": "@postsController.selection.0"},
                 "text":{"<-": "@owner.rssController.filterTerm"},
-                "value":{"<-": "@owner.rssController.filterTerm"}
+                "value":{"<-": "@owner.rssController.filterTerm"},
+                "classList.has('HideControl')": {"<-": "@postsController.selection.0"}
             }
         },
         "postsController": {
@@ -136,6 +136,9 @@
                 "scrollVectorX": true,
                 "scrollVectorY": true,
                 "selectedIndexScrollingOffset": 0
+            },
+            "bindings": {
+                "classList.has('flowBackground')": {"<-": "@postsController.selection.0"}
             }
         },
         "card": {

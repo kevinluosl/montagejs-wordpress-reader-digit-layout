@@ -68,6 +68,10 @@
     background-color: black;
 }
 
+.flowBackground {
+    z-index: -10;
+}
+
 .Flow-item.selected .Flow-item-wrapper {
     background-color: transparent;
     -webkit-animation: displaycard 1.5s both normal;
