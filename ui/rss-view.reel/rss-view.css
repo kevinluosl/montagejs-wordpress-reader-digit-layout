@@ -1,4 +1,4 @@
-.rss-RssView {
+.RssView {
     position: relative;
     font-family: 'Noto Serif', serif;
     overflow: auto;
@@ -15,7 +15,7 @@
     }
 }
 
-.rss-RssView-header {
+.RssView-header {
     height: 66px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     /*background: black url(../../assets/images/logo.png) no-repeat;*/
@@ -26,11 +26,11 @@
 
 /* Article -------------------------------- */
 
-.rss-RssView-article {
+.RssView-article {
     padding: 30px;
 }
 
-.rss-RssView-article-title {
+.RssView-article-title {
     margin: 0 0 20px 0;
     line-height: 1;
     font-size: 22px;
@@ -41,29 +41,29 @@
 
 /* Media -------------------------------- */
 
-.rss-RssView-article-media {
+.RssView-article-media {
     margin: 0 0 20px 0;
     width: 100%;
     text-align: center;
 }
 
-.rss-RssView.podd .rss-RssView-article-media img {
+.RssView.podd .RssView-article-media img {
     width: 100%;
 }
 
-.rss-RssView.space .rss-RssView-article-media img,
-.rss-RssView.kids .rss-RssView-article-media img {
+.RssView.space .RssView-article-media img,
+.RssView.kids .RssView-article-media img {
     max-width: 100%;
 }
 
 @media (min-width: 1000px) {
     /* Larger screens than 1000px */
-    .rss-RssView-article-media {
+    .RssView-article-media {
         float: left;
     }
 
-    .rss-RssView.space .rss-RssView-article-media,
-    .rss-RssView.kids .rss-RssView-article-media {
+    .RssView.space .RssView-article-media,
+    .RssView.kids .RssView-article-media {
         max-width: 50%;
         margin: 0 20px 20px 0;
     }
@@ -72,13 +72,13 @@
 
 /* Fullscreen -------------------------------- */
 
-.rss-RssView.fullscreen {
+.RssView.fullscreen {
     width: auto;
     left: 0;
     background-color: black;
 }
 
-.rss-RssView.fullscreen .rss-RssView-article img {
+.RssView.fullscreen .RssView-article img {
     position: fixed;
     top: 0;
     left: 0;
@@ -95,14 +95,14 @@
     }
 }
 
-.rss-RssView.fullscreen .rss-RssView-article-description,
-.rss-RssView.fullscreen .rss-RssView-article-author {
+.RssView.fullscreen .RssView-article-description,
+.RssView.fullscreen .RssView-article-author {
     visibility: hidden;
 }
 
 /* Text -------------------------------- */
 
-.rss-RssView-article-description {
+.RssView-article-description {
     margin: 0;
     font-size: 16px;
     line-height: 1.4;
@@ -114,7 +114,7 @@
     clear: both; /* because the video is float: left */
 }
 
-.rss-RssView-article-author {
+.RssView-article-author {
     clear: left;
     margin: 20px 0;
     color: hsl(0, 0%, 60%);
@@ -123,7 +123,7 @@
 
 /* BG -------------------------------- */
 
-.rss-RssView-footer {
+.RssView-footer {
     margin: 0 30px;
     padding: 20px;
     text-align: center;
@@ -132,14 +132,14 @@
     color: hsla(0, 0%, 0%, .5);
 }
 
-.rss-RssView .digit-Video {
+.RssView .digit-Video {
     width: 600px;
     height: 337px;
 }
 
 /* Cover -------------------------------- */
 
-.rss-RssView-cover {
+.RssView-cover {
     display: -webkit-box;
     -webkit-box-align: center;
     -webkit-box-pack: center;
@@ -147,7 +147,7 @@
     padding: 120px 0 60px 0;
 }
 
-.rss-RssView-cover-frame {
+.RssView-cover-frame {
     /*//width: 38px;*/
     /*//height: 52px;*/
     /*//border: 6px solid #ffcc00;*/
@@ -187,7 +187,7 @@
     }
 }
 
-.rss-RssView-cover-shadow {
+.RssView-cover-shadow {
     width: 228px;
     height: 20px;
     background: -webkit-radial-gradient(center, closest-side, hsla(0, 0%, 0%, .15), hsla(0, 0%, 0%, 0));
@@ -234,33 +234,33 @@
 
 /*Wordpress style*/
 
-.rss-RssView-article .gallery-item {
+.RssView-article .gallery-item {
     float: left;
     margin: 0 4px 4px 0;
     overflow: hidden;
     position: relative;
 }
 
-.rss-RssView-article .gallery-item .landscape{
+.RssView-article .gallery-item .landscape{
     height: 100px;
 }
 
-.rss-RssView-article .attachment-medium{
+.RssView-article .attachment-medium{
     width: 864px;
     height: 576px;
 }
 
 @media (max-width: 1300px) {
-    .rss-RssView-article .attachment-medium{
+    .RssView-article .attachment-medium{
         width: 100%;
         height: auto;
     }
 }
 
-.rss-RssView-article img.alignleft{
+.RssView-article img.alignleft{
     margin: 7px 24px 7px 0;
 }
 
-.rss-RssView-article img.alignright{
+.RssView-article img.alignright{
     margin: 7px 0 7px 24px;
 }
