@@ -1,10 +1,9 @@
-var Montage = require( "montage/core/core" ).Montage,
-	Reqwest = require( "../tools/reqwest" );
+var Montage = require( "montage/core/core" ).Montage
 
 exports.RssService = Montage.specialize( {
 
 	url: {
-		value: 'http://104.131.138.118/wp-json'
+		value: ''
 	},
 
 	constructor: {
@@ -14,38 +13,42 @@ exports.RssService = Montage.specialize( {
 	},
 
 	getCategories: {
-		value: function() {
-			return this._makeRequest( this.url + '/taxonomies/category/terms' );
+		value: function( handler ) {
+			return this._makeRequest( this.url + '/taxonomies/category/terms', handler );
 		}
 	},
 
 	getSiteInfo: {
-		value: function() {
-			return this._makeRequest( this.url );
+		value: function( handler ) {
+			this._makeRequest( this.url, handler );
 		}
 	},
 
 	getPostData: {
-		value: function( category ) {
+		value: function( category, handler ) {
 			var filter = '';
 			if ( category ) {
 				filter = "?filter[category_name]=" + category
 			}
 
-			return this._makeRequest( this.url + '/posts' + filter );
+			this._makeRequest( this.url + '/posts' + filter, handler );
 		}
 	},
 
 	_makeRequest: {
-		value: function( url, filter ) {
+		value: function( url, handler ) {
 
-			return Reqwest( {
-				url: url,
-				type: "jsonp",
-				method: "get",
-				jsonpCallback: "_jsonp",
-				jsonpCallbackName: "cb"
-			} );
+			var xmlHttp = new XMLHttpRequest();
+
+			xmlHttp.onreadystatechange = function() {
+				if ( xmlHttp.readyState == 4 && xmlHttp.status == 200 ) {
+					handler( JSON.parse( xmlHttp.responseText ) );
+				}
+			};
+
+			xmlHttp.open( "get", url, true );
+			xmlHttp.send();
+
 		}
 	}
 
