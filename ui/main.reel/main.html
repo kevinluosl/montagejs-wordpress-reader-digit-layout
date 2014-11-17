@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="main.css">
     <script type="text/montage-serialization">
     {
+
+
         "owner": {
             "properties": {
-                "element": {"#": "main"}
+                "element": {"#": "app"}
             },
             "bindings": {
                 "classList.has('is-detail')": { "<-": "@list.isView" }
+            }
+        },
+
+         "splitter": {
+            "prototype": "/ui/splitter.reel",
+            "properties": {
+                "element": {"#": "splitter"}
             }
         },
 
@@ -111,43 +120,41 @@
                 "value":{"<-":"@rssController.site.name"}
             }
         },
-        "listHeader": {
+        "searchBar": {
             "prototype": "/ui/bar.reel",
             "properties": {
-                "element": {"#": "listHeader"}
-            }
-        },
-
-        "splitter": {
-            "prototype": "/ui/splitter.reel",
-            "properties": {
-                "element": {"#": "splitter"}
+                "element": {"#": "searchBar"}
             }
         }
+
+
     }
+
+
+
+
+
     </script>
 </head>
 <body>
-<div data-montage-id="main" class="App">
-
+<div data-montage-id="app" class="App">
     <header data-montage-id="header">
         <div data-montage-id="logo"></div>
         <h1 data-montage-id="title"></h1>
-        <span data-montage-id="unreadCount" class="unread-count"></span>
+        <span data-montage-id="unreadCount" class="App-digit-unreadCount"></span>
     </header>
-    <main class="Main" data-montage-id="splitter">
+    <main data-montage-id="splitter" class="App-splitter">
         <aside class="Splitter-item Splitter-item--aside">
-            <header data-montage-id="listHeader" class="search-bar">
+            <header data-montage-id="searchBar" class="App-splitter-searchBar">
                 <input data-montage-id="search" type="search">
             </header>
             <div data-montage-id="list"></div>
-            <div class="bottom-bar">
-                <select data-montage-id="feedSelect" class="rssDemo-Main-aside-footer-select"></select>
+            <div class="App-splitter-bottomBar">
+                <select data-montage-id="feedSelect" class="App-splitter-bottomBar-feedSelect"></select>
             </div>
         </aside>
         <main class="Splitter-item Splitter-item--main">
-            <!--<div data-montage-id="grid"></div>-->
-            <div data-montage-id="rssView" class="rssDemo-Main-rssView"></div>
+            <div data-montage-id="rssView"></div>
         </main>
     </main>
 </div>

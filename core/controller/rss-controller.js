@@ -1,8 +1,5 @@
 var Montage = require( "montage" ).Montage,
-	RssArticle = require( "./../model/rss-article" ).RssArticle,
-	RssSite = require( "./../model/rss-site" ).RssSite,
-	RssService = require( "../service/rss-service" ).RssService,
-	RSSCategory = require( "../model/rss-category" ).RSSCategory;
+	RssService = require( "../service/rss-service" ).RssService
 
 exports.RssController = Montage.specialize( {
 
@@ -35,19 +32,6 @@ exports.RssController = Montage.specialize( {
 		value: null
 	},
 
-	_categoriesRssData: {
-		value: null
-	},
-
-	_siteRssData: {
-		value: null
-	},
-
-	_postRssData: {
-		value: null
-
-	},
-
 	_articles: {
 		value: null
 	},
@@ -78,9 +62,8 @@ exports.RssController = Montage.specialize( {
 	initSiteInfo: {
 		value: function() {
 			var self = this;
-			this.rssService.getSiteInfo().then( function( result ) {
-				self._siteRssData = result;
-				self.site = RssSite.create().init( self._siteRssData );
+			this.rssService.getSiteInfo( function( result ) {
+				self.site = result;
 			} )
 
 		}
@@ -89,18 +72,16 @@ exports.RssController = Montage.specialize( {
 	initCategories: {
 		value: function() {
 			var self = this;
-			this.rssService.getCategories().then( function( result ) {
-				self._categoriesRssData = result;
+			this.rssService.getCategories( function( result ) {
+				var categories = [
+					{name: 'Recent Posts', slug: 'all', count: '-1'}
+				];
+				for ( var i = 0; i < result.length; i++ ) {
 
-				var categories = [RSSCategory.create().init( {name: 'Recent Posts', slug: 'all', count: '-1'} )];
-				for ( var i = 0; i < self._categoriesRssData.length; i++ ) {
-
-					categories.push(
-						RSSCategory.create().init( self._categoriesRssData[i] )
-					);
+					categories.push( result[i] );
 				}
 				self.categories = categories;
-			} )
+			} );
 
 		}
 	},
@@ -114,14 +95,11 @@ exports.RssController = Montage.specialize( {
 				return;
 			}
 
-			this.rssService.getPostData( this.category == "all" ? "" : this.category ).then( function( result ) {
-				self._postRssData = result;
+			this.rssService.getPostData( this.category == "all" ? "" : this.category, function( result ) {
 				var articles = [];
-				for ( var i = 0; i < self._postRssData.length; i++ ) {
+				for ( var i = 0; i < result.length; i++ ) {
 
-					articles.push(
-						RssArticle.create().init( self._postRssData[i] )
-					);
+					articles.push( result[i] );
 				}
 				self._articles = articles;
 				self.categoryCache[ self.category ] = self._articles;

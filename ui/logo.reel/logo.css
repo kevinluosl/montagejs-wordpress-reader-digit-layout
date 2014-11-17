@@ -8,7 +8,7 @@
     height: 100%;
 }
 
-.back {
+.Logo-back {
     margin: 0;
     padding: 0;
     font-size: 1.5em;
@@ -16,7 +16,7 @@
     border: none;
 }
 
-.logo-png {
+.Logo-png {
     display: block;
     margin: auto;
     width: 40px;
