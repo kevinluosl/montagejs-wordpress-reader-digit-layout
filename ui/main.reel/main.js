@@ -50,7 +50,7 @@ exports.Main = Component.specialize(/** @lends Main# */ {
             if (firstTime) {
                 this._wordpressConnector.queryCategory().then(function (result) {
                     var categories = [
-                        {name: 'Recent Posts', slug: '', count: '-1'}
+                        {name: '最新文章', slug: '', count: '-1'}
                     ];
                     for (var i = 0; i < result.length; i++) {
                         categories.push(result[i]);
@@ -58,7 +58,7 @@ exports.Main = Component.specialize(/** @lends Main# */ {
                     self.categories = categories;
                 });
                 this._wordpressConnector.querySiteInfo().then(function (result) {
-                    self.site = result;
+                    //self.site = {name: '创新中心'};
                 });
                 this.addOwnPropertyChangeListener("filterTerm", this, false);
                 this.addOwnPropertyChangeListener("category", this, false);
