@@ -40,6 +40,10 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         value: null
     },
 
+    site: {
+        value: null
+    },
+
     enterDocument: {
         value: function (firstTime) {
             var self = this;
@@ -53,7 +57,9 @@ exports.Main = Component.specialize(/** @lends Main# */ {
                     }
                     self.categories = categories;
                 });
-                this._wordpressConnector.querySiteInfo();
+                this._wordpressConnector.querySiteInfo().then(function (result) {
+                    self.site = result;
+                });
                 this.addOwnPropertyChangeListener("filterTerm", this, false);
                 this.addOwnPropertyChangeListener("category", this, false);
                 this._wordpressConnector.addOwnPropertyChangeListener("posts", this, false);
