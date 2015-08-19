@@ -7,132 +7,113 @@
     </title>
     <link rel="stylesheet" href="main.css">
     <script type="text/montage-serialization">
-    {
-
-
-        "owner": {
-            "properties": {
-                "element": {"#": "app"}
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "app"}
+                },
+                "bindings": {
+                    "classList.has('is-detail')": {"<-": "@list.isView"},
+                    "_wordpressConnector": {"<-": "@wordpressConnector"},
+                    "category": {"<-": "@feedSelectController.selection.0.slug"}
+                }
             },
-            "bindings": {
-                "classList.has('is-detail')": { "<-": "@list.isView" }
-            }
-        },
-
-         "splitter": {
-            "prototype": "/ui/splitter.reel",
-            "properties": {
-                "element": {"#": "splitter"}
-            }
-        },
-
-        "rssController": {
-            "prototype": "core/controller/rss-controller",
-            "properties": {
-                "rssUrl": "http://104.131.138.118/wp-json"
+            "splitter": {
+                "prototype": "/ui/splitter.reel",
+                "properties": {
+                    "element": {"#": "splitter"}
+                }
             },
-            "bindings": {
-                "category": {"<-": "@feedSelectController.selection.0.slug"},
-                "filterTerm": {"<-": "@search.value"}
-
-            }
-        },
-
-         "list": {
-            "prototype": "ui/list.reel",
-            "properties": {
-                "element": {"#": "list"},
-                 "contentController": {"@":"rssController"}
-            }
-        },
-
-        "feedSelectController": {
-            "prototype": "montage/core/range-controller",
-            "bindings": {
-                "content": {"<-": "@rssController.categories"}
-            }
-        },
-
-        "feedSelect": {
-            "prototype": "digit/ui/select.reel",
-            "properties": {
-                "element": {"#": "feedSelect"},
-                "contentController": {"@": "feedSelectController"},
-                "labelPropertyName": "name",
-                "valuePropertyPath": "slug"
-            }
-        },
-
-        "rssView": {
-            "prototype": "ui/rss-view.reel",
-            "properties": {
-                "element": {"#": "rssView"},
-                "list":{"@":"list"}
-
+            "list": {
+                "prototype": "ui/list.reel",
+                "properties": {
+                    "element": {"#": "list"}
+                },
+                "bindings": {
+                    "posts": {"<-": "@owner.posts"}
+                }
             },
-            "bindings": {
-                "article": {"<-": "@list.selectedArticle"}
-            }
-        },
-
-        "header": {
-            "prototype": "/ui/bar.reel",
-            "properties": {
-                "element": {"#": "header"}
-            }
-        },
-        "unreadCount": {
-            "prototype": "digit/ui/text.reel",
-            "properties": {
-                "element": {"#": "unreadCount"},
-                "label": "10",
-                "value": "8"
+            "feedSelectController": {
+                "prototype": "montage/core/range-controller",
+                "bindings": {
+                    "content": {"<-": "@owner.categories"}
+                }
             },
-            "bindings": {
-                "value": {"<-": "@rssController.articles.filter{!isRead}.length"}
-            }
-        },
-        "logo": {
-            "prototype": "/ui/logo.reel",
-            "properties": {
-                "element": {"#": "logo"},
-                "list":{"@":"list"}
+            "feedSelect": {
+                "prototype": "digit/ui/select.reel",
+                "properties": {
+                    "element": {"#": "feedSelect"},
+                    "contentController": {"@": "feedSelectController"},
+                    "labelPropertyName": "name",
+                    "valuePropertyPath": "slug"
+                }
             },
-
-            "bindings": {
-                "showBack": { "<-": "@list.isView" }
-            }
-        },
-        "search": {
-            "prototype": "digit/ui/text-field.reel",
-            "properties": {
-                "element": {"#": "search"},
-                "placeholderValue": "Search"
-            }
-        },
-        "title": {
-            "prototype": "digit/ui/title.reel",
-            "properties": {
-                "element": {"#": "title"}
+            "rssView": {
+                "prototype": "ui/rss-view.reel",
+                "properties": {
+                    "element": {"#": "rssView"},
+                    "list": {"@": "list"}
+                },
+                "bindings": {
+                    "article": {"<-": "@list.selectedArticle"}
+                }
             },
-
-            "bindings":{
-                "value":{"<-":"@rssController.site.name"}
-            }
-        },
-        "searchBar": {
-            "prototype": "/ui/bar.reel",
-            "properties": {
-                "element": {"#": "searchBar"}
+            "header": {
+                "prototype": "/ui/bar.reel",
+                "properties": {
+                    "element": {"#": "header"}
+                }
+            },
+            "unreadCount": {
+                "prototype": "digit/ui/text.reel",
+                "properties": {
+                    "element": {"#": "unreadCount"},
+                    "label": "10",
+                    "value": "8"
+                },
+                "bindings": {
+                    "value": {"<-": "@wordpressConnector.posts.filter{!isRead}.length"}
+                }
+            },
+            "logo": {
+                "prototype": "/ui/logo.reel",
+                "properties": {
+                    "element": {"#": "logo"},
+                    "list": {"@": "list"}
+                },
+                "bindings": {
+                    "showBack": {"<-": "@list.isView"}
+                }
+            },
+            "search": {
+                "prototype": "digit/ui/text-field.reel",
+                "properties": {
+                    "element": {"#": "search"},
+                    "placeholderValue": "Search"
+                }
+            },
+            "title": {
+                "prototype": "digit/ui/title.reel",
+                "properties": {
+                    "element": {"#": "title"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.site.name"}
+                }
+            },
+            "searchBar": {
+                "prototype": "/ui/bar.reel",
+                "properties": {
+                    "element": {"#": "searchBar"}
+                }
+            },
+            "wordpressConnector": {
+                "prototype": "montage-wordpress/core/wordpress-connector",
+                "properties": {
+                    "host": "104.131.138.118"
+                }
             }
         }
-
-
-    }
-
-
-
-
 
     </script>
 </head>
