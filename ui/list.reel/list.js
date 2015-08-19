@@ -69,9 +69,7 @@ exports.List = Component.specialize( /** @lends List# */ {
 
 	handleSelection: {
 		value: function( selected ) {
-
 			this.selectedIndex = this.templateObjects.rep.selectedIndexes[this.templateObjects.rep.selectedIndexes.length - 1];
-			var $this = this;
 			if ( selected && document.body.clientWidth <= 800 ) {
 				this.isView = true;
 			}

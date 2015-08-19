@@ -5,7 +5,7 @@
     "montage": "~0.14.0",
     "digit": "~0.5.0",
     "matte": "~0.2.0",
-    "montage-wordpress": "montagestudio/montage-wordpress"
+    "montage-wordpress": "montagestudio/montage-wordpress#kevin-wordpress-connector"
   },
   "devDependencies": {
     "montage-testing": "~0.4.0"

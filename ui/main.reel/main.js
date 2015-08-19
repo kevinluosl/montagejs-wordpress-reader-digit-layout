@@ -16,6 +16,10 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         }
     },
 
+    postsCache: {
+        value: {}
+    },
+
     _wordpressConnector: {
         value: null
     },
@@ -72,8 +76,13 @@ exports.Main = Component.specialize(/** @lends Main# */ {
                     this._wordpressConnector.posts = [];
                 }
             } else if (key === 'category') {
-                this._wordpressConnector.queryPosts(this.category).then(function(result){
+                if (this.postsCache[this.category]) {
+                    self.posts = this.postsCache[this.category];
+                    return;
+                }
+                this._wordpressConnector.queryPosts(this.category).then(function (result) {
                     self.posts = result;
+                    self.postsCache[self.category] = self.posts;
                 });
             }
         }
